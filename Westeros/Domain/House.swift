@@ -7,3 +7,63 @@
 //
 
 import Foundation
+
+typealias Words = String
+typealias Members = Set<Person>
+
+final class House {
+
+    let name: String
+    let sigil: Sigil
+    let words: Words
+    private var _members: Members
+    
+    init(name: String, sigil: Sigil, words: Words) {
+        self.name = name
+        self.sigil = sigil
+        self.words = words
+        _members = Members.init()
+    }
+    
+}
+
+extension House {
+    var count: Int {
+        return _members.count
+    }
+
+    func addMember(person: Person) {
+        if (self == person.house) {
+            _members.insert(person)
+        }
+    }
+}
+
+extension House: Equatable {
+    static func == (lhs: House, rhs: House) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+}
+
+extension House: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.name)
+        hasher.combine(self.sigil.description)
+    }
+    
+}
+
+extension House {
+    var proxyForComparison: Int {
+        return name.uppercased().count
+    }
+
+}
+
+extension House: Comparable {
+    static func < (lhs: House, rhs: House) -> Bool {
+        // alguna lógica para definir cuándo el lhs < rhs
+        return lhs.proxyForComparison < rhs.proxyForComparison
+    }
+    
+}

@@ -8,26 +8,55 @@
 
 import XCTest
 
+@testable import Westeros
+
 class PersonTests: XCTestCase {
 
+    var starkSigil: Sigil!
+    var starkHouse: House!
+    
+    var arya: Person!
+    var ned: Person!
+
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        starkSigil = Sigil(description: "Warg", image: UIImage())
+        starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming")
+        
+        arya = Person(name: "Arya", house: starkHouse)
+        ned = Person(name: "Eddard", house: starkHouse, alias: "Ned")
+
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testPersonExistence() {
+        XCTAssertNotNil(ned)
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testPersonExistenceWithoutAlias() {
+        XCTAssertNotNil(arya)
+        XCTAssertEqual(arya.alias, "")
     }
-
+    
+    func testPersonFullName() {
+        XCTAssertEqual(ned.fullName, "Eddard Stark")
+    }
+    
+    func testPersonConformsToHashable() {
+        XCTAssertNotNil(ned.hashValue)
+    }
+    
+    func testPersonEquality() {
+        // 1 Igualdad
+        XCTAssertEqual(ned, ned)
+        
+        // 2 Identidad
+        let dummyPerson = Person(name: "Eddard", house: starkHouse, alias: "Ned")
+        XCTAssertEqual(ned, dummyPerson)
+        
+        // 3 Desigualdad
+        XCTAssertNotEqual(ned, arya)
+    }
 }

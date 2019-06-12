@@ -7,3 +7,41 @@
 //
 
 import Foundation
+
+final class Person {
+    let name: String
+    let house: House
+    var alias: String?
+    
+    init(name: String, house: House, alias: String) {
+        self.name = name
+        self.house = house
+        self.alias = alias
+    }
+}
+
+extension Person {
+    convenience init(name: String, house: House) {
+        self.init(name: name, house: house, alias: "")
+    }
+}
+
+extension Person: Equatable {
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+}
+
+extension Person: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.name)
+        hasher.combine(self.house)
+        hasher.combine(self.alias)
+    }
+}
+
+extension Person {
+    var fullName: String {
+        return "\(self.name) \(self.house.name)"
+    }
+}
