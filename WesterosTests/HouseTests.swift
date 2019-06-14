@@ -77,8 +77,8 @@ class HouseTests: XCTestCase {
     }
     
     func testHouseComparison() {
-//        XCTAssertLessThan(lannisterHouse, starkHouse)
-        XCTAssertLessThan(starkHouse, lannisterHouse)
+        XCTAssertLessThan(lannisterHouse, starkHouse)
+//        XCTAssertLessThan(starkHouse, lannisterHouse)
     }
 
 }

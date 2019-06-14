@@ -54,8 +54,9 @@ extension House: Hashable {
 }
 
 extension House {
-    var proxyForComparison: Int {
-        return name.uppercased().count
+    var proxyForComparison: String {
+//        return name.uppercased().count
+        return name.uppercased()
     }
 
 }

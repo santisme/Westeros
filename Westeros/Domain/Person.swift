@@ -13,16 +13,10 @@ final class Person {
     let house: House
     var alias: String?
     
-    init(name: String, house: House, alias: String) {
+    init(name: String, house: House, alias: String? = "") {
         self.name = name
         self.house = house
         self.alias = alias
-    }
-}
-
-extension Person {
-    convenience init(name: String, house: House) {
-        self.init(name: name, house: house, alias: "")
     }
 }
 
