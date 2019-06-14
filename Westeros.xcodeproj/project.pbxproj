@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		F12A99ED22B2DD0B00BA2254 /* HouseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A99EB22B2DD0B00BA2254 /* HouseDetailViewController.swift */; };
 		F12A99EE22B2DD0B00BA2254 /* HouseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */; };
+		F1949D7C22B3DB3E005F40BA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1949D7B22B3DB3E005F40BA /* Repository.swift */; };
+		F1949D8022B3E78F005F40BA /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1949D7F22B3E78F005F40BA /* UIViewController+Navigation.swift */; };
+		F1949D8222B3EA59005F40BA /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1949D8122B3EA59005F40BA /* RepositoryTests.swift */; };
 		F19904ED22AF0B1400D13F87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19904EC22AF0B1400D13F87 /* AppDelegate.swift */; };
 		F19904F422AF0B1500D13F87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19904F322AF0B1500D13F87 /* Assets.xcassets */; };
 		F19904F722AF0B1500D13F87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19904F522AF0B1500D13F87 /* LaunchScreen.storyboard */; };
@@ -32,6 +35,9 @@
 /* Begin PBXFileReference section */
 		F12A99EB22B2DD0B00BA2254 /* HouseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailViewController.swift; sourceTree = "<group>"; };
 		F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseDetailViewController.xib; sourceTree = "<group>"; };
+		F1949D7B22B3DB3E005F40BA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		F1949D7F22B3E78F005F40BA /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
+		F1949D8122B3EA59005F40BA /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		F19904E922AF0B1400D13F87 /* Westeros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Westeros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19904EC22AF0B1400D13F87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F19904F322AF0B1500D13F87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +79,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		F1949D7D22B3DD22005F40BA /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F1949D7B22B3DB3E005F40BA /* Repository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		F1949D7E22B3E72D005F40BA /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				F1949D7F22B3E78F005F40BA /* UIViewController+Navigation.swift */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
 		F19904E022AF0B1400D13F87 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +116,7 @@
 		F19904EB22AF0B1400D13F87 /* Westeros */ = {
 			isa = PBXGroup;
 			children = (
+				F1949D7E22B3E72D005F40BA /* Additions */,
 				F12A99EA22B2DC5500BA2254 /* Controller */,
 				F1A8459D22B02C86002B8AE9 /* Domain */,
 				F19904EC22AF0B1400D13F87 /* AppDelegate.swift */,
@@ -110,6 +133,7 @@
 				F199050322AF0B1500D13F87 /* Info.plist */,
 				F199050C22AF11E300D13F87 /* HouseTests.swift */,
 				F1A437D822B1AF39008FC13E /* PersonTests.swift */,
+				F1949D8122B3EA59005F40BA /* RepositoryTests.swift */,
 			);
 			path = WesterosTests;
 			sourceTree = "<group>";
@@ -117,6 +141,7 @@
 		F1A8459D22B02C86002B8AE9 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				F1949D7D22B3DD22005F40BA /* Repositories */,
 				F1A845A022B03117002B8AE9 /* House.swift */,
 				F1A437D122B19BE7008FC13E /* Sigil.swift */,
 				F1A437D422B1A194008FC13E /* Person.swift */,
@@ -227,10 +252,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F12A99ED22B2DD0B00BA2254 /* HouseDetailViewController.swift in Sources */,
+				F1949D8022B3E78F005F40BA /* UIViewController+Navigation.swift in Sources */,
 				F1A437D222B19BE7008FC13E /* Sigil.swift in Sources */,
 				F1A845A122B03117002B8AE9 /* House.swift in Sources */,
 				F1A437D722B1A311008FC13E /* Person.swift in Sources */,
 				F19904ED22AF0B1400D13F87 /* AppDelegate.swift in Sources */,
+				F1949D7C22B3DB3E005F40BA /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +267,7 @@
 			files = (
 				F1A437D922B1AF39008FC13E /* PersonTests.swift in Sources */,
 				F199050D22AF11E300D13F87 /* HouseTests.swift in Sources */,
+				F1949D8222B3EA59005F40BA /* RepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

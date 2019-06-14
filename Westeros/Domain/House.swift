@@ -6,7 +6,7 @@
 //  Copyright © 2019 Santiago Sanchez merino. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 typealias Words = String
 typealias Members = Set<Person>

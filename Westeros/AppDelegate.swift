@@ -19,9 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .cyan
+
+        let houses = Repository.local.houses
+        var controllers = [UINavigationController]()
         
-        let rootViewController = HouseDetailViewController()
-        window?.rootViewController = rootViewController
+        for house in houses {
+            controllers.append(HouseDetailViewController(house: house).wrappedInNavigation)
+        }
+
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = controllers
+
+        window?.rootViewController = tabBarController
         
         return true
     }
