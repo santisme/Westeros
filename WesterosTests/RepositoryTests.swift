@@ -22,7 +22,7 @@ class RepositoryTests: XCTestCase {
     }
     
     func testHouseRepositoryCorrectCount() {
-        XCTAssertEqual(Repository.local.houses.count, 2)
+        XCTAssertEqual(Repository.local.houses.count, 3)
     }
 
     func testLocalRepositoryReturnsSortedArrayOfHouses() {

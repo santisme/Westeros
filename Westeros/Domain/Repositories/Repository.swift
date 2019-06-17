@@ -25,6 +25,21 @@ final class LocalFactory: HouseFactory {
         let targaryenSigil = Sigil(description: "Three Head Dragon", image: UIImage(named: "targaryen")!)
         let targaryenHouse = House(name: "Targaryen", sigil: targaryenSigil, words: "Fuego y Sangre")
 
+        // Add characters
+        let robb = Person(name: "Robb", house: starkHouse, alias: "The young wolf" )
+        let arya = Person(name: "Arya", house: starkHouse)
+        let tyrion = Person(name: "Tyrion", house: lannisterHouse, alias: "The dwarf")
+        let jaime = Person(name: "Jaime", house: lannisterHouse, alias: "The kingslayer")
+        let cersei = Person(name: "Cersei", house: lannisterHouse)
+        let dani = Person(name: "Daenerys", house: targaryenHouse, alias: "The mother of the dragons")
+        
+        starkHouse.addMember(person: arya)
+        starkHouse.addMember(person: robb)
+        lannisterHouse.addMember(person: tyrion)
+        lannisterHouse.addMember(person: jaime)
+        lannisterHouse.addMember(person: cersei)
+        targaryenHouse.addMember(person: dani)
+        
         return [starkHouse, lannisterHouse, targaryenHouse].sorted()
     }
 }
