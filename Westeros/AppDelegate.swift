@@ -20,15 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .cyan
 
+        // Creamos un array de casas
         let houses = Repository.local.houses
-        var controllers = [UINavigationController]()
-        
-        for house in houses {
-            controllers.append(HouseDetailViewController(house: house).wrappedInNavigation)
-        }
 
+        // Creamos el combinador
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = controllers
+        tabBarController.viewControllers =
+            // Creamos los controladores
+            houses
+                .map{ HouseDetailViewController(house: $0) }
+                .map{ $0.wrappedInNavigation }
 
         window?.rootViewController = tabBarController
         

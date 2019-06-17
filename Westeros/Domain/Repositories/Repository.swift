@@ -22,7 +22,9 @@ final class LocalFactory: HouseFactory {
         let starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming")
         let lannisterSigil = Sigil(description: "Lion rampant", image: UIImage(named: "lannister")!)
         let lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Hear me roar!")
-        
-        return [starkHouse, lannisterHouse]
+        let targaryenSigil = Sigil(description: "Three Head Dragon", image: UIImage(named: "targaryen")!)
+        let targaryenHouse = House(name: "Targaryen", sigil: targaryenSigil, words: "Fuego y Sangre")
+
+        return [starkHouse, lannisterHouse, targaryenHouse].sorted()
     }
 }
