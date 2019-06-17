@@ -14,6 +14,10 @@ final class Repository {
 
 protocol HouseFactory {
     var houses: [House] { get }
+    
+    func house(named name: String) -> House?
+    func houses(filteredBy theFilter: (House) -> Bool) -> [House]
+
 }
 
 final class LocalFactory: HouseFactory {
@@ -23,7 +27,7 @@ final class LocalFactory: HouseFactory {
         let lannisterSigil = Sigil(description: "Lion rampant", image: UIImage(named: "lannister")!)
         let lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Hear me roar!")
         let targaryenSigil = Sigil(description: "Three Head Dragon", image: UIImage(named: "targaryen")!)
-        let targaryenHouse = House(name: "Targaryen", sigil: targaryenSigil, words: "Fuego y Sangre")
+        let targaryenHouse = House(name: "Targaryen", sigil: targaryenSigil, words: "Fire and Blood")
 
         // Add characters
         let robb = Person(name: "Robb", house: starkHouse, alias: "The young wolf" )
@@ -33,13 +37,18 @@ final class LocalFactory: HouseFactory {
         let cersei = Person(name: "Cersei", house: lannisterHouse)
         let dani = Person(name: "Daenerys", house: targaryenHouse, alias: "The mother of the dragons")
         
-        starkHouse.addMember(person: arya)
-        starkHouse.addMember(person: robb)
-        lannisterHouse.addMember(person: tyrion)
-        lannisterHouse.addMember(person: jaime)
-        lannisterHouse.addMember(person: cersei)
+        starkHouse.addMember(persons: arya, robb)
+        lannisterHouse.addMember(persons: tyrion, jaime, cersei)
         targaryenHouse.addMember(person: dani)
         
         return [starkHouse, lannisterHouse, targaryenHouse].sorted()
+    }
+    
+    func house(named name: String) -> House? {
+        return houses.first { $0.name.uppercased() == name.uppercased() } // filter + first
+    }
+    
+    func houses(filteredBy theFilter: (House) -> Bool) -> [House] {
+        return houses.filter(theFilter)
     }
 }

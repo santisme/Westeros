@@ -18,7 +18,7 @@ class HouseTests: XCTestCase {
     var lannisterHouse: House!
 
     var arya: Person!
-    var rob: Person!
+    var robb: Person!
     var tyrion: Person!
     
     override func setUp() {
@@ -28,7 +28,7 @@ class HouseTests: XCTestCase {
         lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Hear me roar!")
         
         arya = Person(name: "Arya", house: starkHouse)
-        rob = Person(name: "Rob", house: starkHouse)
+        robb = Person(name: "Robb", house: starkHouse)
         tyrion = Person(name: "Tyrion", house: lannisterHouse)
 
     }
@@ -48,9 +48,9 @@ class HouseTests: XCTestCase {
     func testHouseAddMembers() {
         starkHouse.addMember(person: arya)
         XCTAssertEqual(starkHouse.count, 1)
-        starkHouse.addMember(person: rob)
+        starkHouse.addMember(person: robb)
         XCTAssertEqual(starkHouse.count, 2)
-        starkHouse.addMember(person: rob)
+        starkHouse.addMember(person: robb)
         XCTAssertEqual(starkHouse.count, 2)
         
         lannisterHouse.addMember(person: tyrion)
@@ -58,6 +58,11 @@ class HouseTests: XCTestCase {
         starkHouse.addMember(person: tyrion)
         XCTAssertEqual(starkHouse.count, 2)
         
+    }
+    
+    func testAddPersonsAtOnce() {
+        starkHouse.addMember(persons: arya, robb, tyrion)
+        XCTAssertEqual(starkHouse.count, 2)
     }
     
     func testHouseConformsToHashable() {

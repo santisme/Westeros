@@ -37,6 +37,10 @@ extension House {
             _members.insert(person)
         }
     }
+    
+    func addMember(persons: Person...) {
+        persons.forEach{ addMember(person: $0)}
+    }
 }
 
 extension House: Equatable {
