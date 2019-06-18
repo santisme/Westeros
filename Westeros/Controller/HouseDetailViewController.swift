@@ -31,11 +31,41 @@ final class HouseDetailViewController: UIViewController {
     
     
     // MARK: - Life Cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        syncModelWithView()
+        setupUI()
+    }
+
+}
+
+extension HouseDetailViewController {
+    private func syncModelWithView() {
         houseNameLabel.text = "House \(house.name)"
         sigilImageView.image = house.sigil.image
         wordsLabel.text = house.words
     }
+}
 
+extension HouseDetailViewController {
+    private func setupUI() {
+        let wikiButton = UIBarButtonItem(
+            title: "Wiki",
+            style: .plain,
+            target: self,                       // Donde está definido el método del action
+            action: #selector(displayWiki)      // hay que crear un selector que ejecute una función
+        )
+        
+        // Añadimos el boton al Navigation bar
+        navigationItem.rightBarButtonItem = wikiButton
+    }
+    
+    @objc private func displayWiki() {          // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
+        // Crear el wiki WC
+        let wikiViewController = WikiViewController(model: house)
+        
+        // Mostrarlo mediante un push navigation controller
+        navigationController?.pushViewController(wikiViewController, animated: true)
+        
+    }
 }

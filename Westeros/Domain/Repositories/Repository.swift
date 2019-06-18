@@ -23,11 +23,31 @@ protocol HouseFactory {
 final class LocalFactory: HouseFactory {
     var houses: [House] {
         let starkSigil = Sigil(description: "Warg", image: UIImage(named: "stark")!)
-        let starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming")
         let lannisterSigil = Sigil(description: "Lion rampant", image: UIImage(named: "lannister")!)
-        let lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Hear me roar!")
         let targaryenSigil = Sigil(description: "Three Head Dragon", image: UIImage(named: "targaryen")!)
-        let targaryenHouse = House(name: "Targaryen", sigil: targaryenSigil, words: "Fire and Blood")
+
+        let starkURL = URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!
+        let lannisterURL = URL(string: "https://awoiaf.westeros.org/index.php/House_Lannister")!
+        let targaryenURL = URL(string: "https://awoiaf.westeros.org/index.php/House_Targaryen")!
+
+        let starkHouse = House(
+            name: "Stark",
+            sigil: starkSigil,
+            words: "Winter is coming",
+            url: starkURL
+        )
+        let lannisterHouse = House(
+            name: "Lannister",
+            sigil: lannisterSigil,
+            words: "Hear me roar!",
+            url: lannisterURL
+        )
+        let targaryenHouse = House(
+            name: "Targaryen",
+            sigil: targaryenSigil,
+            words: "Fire and Blood",
+            url: targaryenURL
+        )
 
         // Add characters
         let robb = Person(name: "Robb", house: starkHouse, alias: "The young wolf" )
@@ -36,7 +56,7 @@ final class LocalFactory: HouseFactory {
         let jaime = Person(name: "Jaime", house: lannisterHouse, alias: "The kingslayer")
         let cersei = Person(name: "Cersei", house: lannisterHouse)
         let dani = Person(name: "Daenerys", house: targaryenHouse, alias: "The mother of the dragons")
-        
+ 
         starkHouse.addMember(persons: arya, robb)
         lannisterHouse.addMember(persons: tyrion, jaime, cersei)
         targaryenHouse.addMember(person: dani)

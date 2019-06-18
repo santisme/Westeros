@@ -13,6 +13,7 @@ import XCTest
 class PersonTests: XCTestCase {
 
     var starkSigil: Sigil!
+    var starkURL: URL!
     var starkHouse: House!
     
     var arya: Person!
@@ -21,8 +22,15 @@ class PersonTests: XCTestCase {
     
     override func setUp() {
         starkSigil = Sigil(description: "Warg", image: UIImage())
-        starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming")
+        starkURL = URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!
         
+        starkHouse = House(
+            name: "Stark",
+            sigil: starkSigil,
+            words: "Winter is coming",
+            url: starkURL
+        )
+
         arya = Person(name: "Arya", house: starkHouse)
         ned = Person(name: "Eddard", house: starkHouse, alias: "Ned")
 

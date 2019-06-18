@@ -23,9 +23,24 @@ class HouseTests: XCTestCase {
     
     override func setUp() {
         starkSigil = Sigil(description: "Warg", image: UIImage())
-        starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming")
         lannisterSigil = Sigil(description: "Lion rampant", image: UIImage())
-        lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Hear me roar!")
+        
+        let starkURL = URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!
+        let lannisterURL = URL(string: "https://awoiaf.westeros.org/index.php/House_Lannister")!
+        
+        starkHouse = House(
+            name: "Stark",
+            sigil: starkSigil,
+            words: "Winter is coming",
+            url: starkURL
+        )
+        
+        lannisterHouse = House(
+            name: "Lannister",
+            sigil: lannisterSigil,
+            words: "Hear me roar!",
+            url: lannisterURL
+        )
         
         arya = Person(name: "Arya", house: starkHouse)
         robb = Person(name: "Robb", house: starkHouse)
@@ -74,7 +89,7 @@ class HouseTests: XCTestCase {
         XCTAssertEqual(starkHouse, starkHouse)
         
         // 2 Identidad
-        let dummyHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming")
+        let dummyHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming", url: URL(string: "https://www.dummy.com")!)
         XCTAssertEqual(starkHouse, dummyHouse)
 
         // 3 Desigualdad

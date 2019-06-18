@@ -20,6 +20,9 @@
 		F1A437D722B1A311008FC13E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A437D422B1A194008FC13E /* Person.swift */; };
 		F1A437D922B1AF39008FC13E /* PersonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A437D822B1AF39008FC13E /* PersonTests.swift */; };
 		F1A845A122B03117002B8AE9 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A845A022B03117002B8AE9 /* House.swift */; };
+		F1E9FEA922B96C97009C4767 /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9FEA722B96C97009C4767 /* WikiViewController.swift */; };
+		F1E9FEAA22B96C97009C4767 /* WikiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E9FEA822B96C97009C4767 /* WikiViewController.xib */; };
+		F1E9FEAD22B9779F009C4767 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E9FEAC22B9779F009C4767 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		F1A437D422B1A194008FC13E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		F1A437D822B1AF39008FC13E /* PersonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTests.swift; sourceTree = "<group>"; };
 		F1A845A022B03117002B8AE9 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		F1E9FEA722B96C97009C4767 /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
+		F1E9FEA822B96C97009C4767 /* WikiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WikiViewController.xib; sourceTree = "<group>"; };
+		F1E9FEAC22B9779F009C4767 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E9FEAD22B9779F009C4767 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +82,8 @@
 			children = (
 				F12A99EB22B2DD0B00BA2254 /* HouseDetailViewController.swift */,
 				F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */,
+				F1E9FEA722B96C97009C4767 /* WikiViewController.swift */,
+				F1E9FEA822B96C97009C4767 /* WikiViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -101,6 +110,7 @@
 				F19904EB22AF0B1400D13F87 /* Westeros */,
 				F199050022AF0B1500D13F87 /* WesterosTests */,
 				F19904EA22AF0B1400D13F87 /* Products */,
+				F1E9FEAB22B9779E009C4767 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +157,14 @@
 				F1A437D422B1A194008FC13E /* Person.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		F1E9FEAB22B9779E009C4767 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1E9FEAC22B9779F009C4767 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +251,7 @@
 			files = (
 				F19904F722AF0B1500D13F87 /* LaunchScreen.storyboard in Resources */,
 				F19904F422AF0B1500D13F87 /* Assets.xcassets in Resources */,
+				F1E9FEAA22B96C97009C4767 /* WikiViewController.xib in Resources */,
 				F12A99EE22B2DD0B00BA2254 /* HouseDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +276,7 @@
 				F1A845A122B03117002B8AE9 /* House.swift in Sources */,
 				F1A437D722B1A311008FC13E /* Person.swift in Sources */,
 				F19904ED22AF0B1400D13F87 /* AppDelegate.swift in Sources */,
+				F1E9FEA922B96C97009C4767 /* WikiViewController.swift in Sources */,
 				F1949D7C22B3DB3E005F40BA /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
