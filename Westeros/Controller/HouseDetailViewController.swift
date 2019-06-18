@@ -56,16 +56,33 @@ extension HouseDetailViewController {
             action: #selector(displayWiki)      // hay que crear un selector que ejecute una función
         )
         
+        let membersButton = UIBarButtonItem(
+            title: "Members",
+            style: .plain,
+            target: self,                       // Donde está definido el método del action
+            action: #selector(displayMembers)      // hay que crear un selector que ejecute una función
+        )
         // Añadimos el boton al Navigation bar
-        navigationItem.rightBarButtonItem = wikiButton
+        navigationItem.rightBarButtonItems = [wikiButton, membersButton]
     }
     
-    @objc private func displayWiki() {          // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
+    @objc private func displayWiki() {
+        // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
         // Crear el wiki WC
         let wikiViewController = WikiViewController(model: house)
         
         // Mostrarlo mediante un push navigation controller
         navigationController?.pushViewController(wikiViewController, animated: true)
+        
+    }
+    
+    @objc private func displayMembers() {
+        // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
+        // Crear el wiki WC
+        let memberListViewController = MemberListViewController(model: house.sortedMembers)
+        
+        // Mostrarlo mediante un push navigation controller
+        navigationController?.pushViewController(memberListViewController, animated: true)
         
     }
 }

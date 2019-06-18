@@ -23,6 +23,10 @@
 		F1E9FEA922B96C97009C4767 /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9FEA722B96C97009C4767 /* WikiViewController.swift */; };
 		F1E9FEAA22B96C97009C4767 /* WikiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E9FEA822B96C97009C4767 /* WikiViewController.xib */; };
 		F1E9FEAD22B9779F009C4767 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E9FEAC22B9779F009C4767 /* WebKit.framework */; };
+		F1E9FEB122B989C7009C4767 /* HouseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9FEAF22B989C7009C4767 /* HouseListViewController.swift */; };
+		F1E9FEB222B989C7009C4767 /* HouseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E9FEB022B989C7009C4767 /* HouseListViewController.xib */; };
+		F1E9FEB922B99A79009C4767 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9FEB722B99A79009C4767 /* MemberListViewController.swift */; };
+		F1E9FEBA22B99A79009C4767 /* MemberListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E9FEB822B99A79009C4767 /* MemberListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 		F1E9FEA722B96C97009C4767 /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
 		F1E9FEA822B96C97009C4767 /* WikiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WikiViewController.xib; sourceTree = "<group>"; };
 		F1E9FEAC22B9779F009C4767 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		F1E9FEAF22B989C7009C4767 /* HouseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseListViewController.swift; sourceTree = "<group>"; };
+		F1E9FEB022B989C7009C4767 /* HouseListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseListViewController.xib; sourceTree = "<group>"; };
+		F1E9FEB722B99A79009C4767 /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
+		F1E9FEB822B99A79009C4767 /* MemberListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,10 @@
 				F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */,
 				F1E9FEA722B96C97009C4767 /* WikiViewController.swift */,
 				F1E9FEA822B96C97009C4767 /* WikiViewController.xib */,
+				F1E9FEAF22B989C7009C4767 /* HouseListViewController.swift */,
+				F1E9FEB022B989C7009C4767 /* HouseListViewController.xib */,
+				F1E9FEB722B99A79009C4767 /* MemberListViewController.swift */,
+				F1E9FEB822B99A79009C4767 /* MemberListViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +264,8 @@
 				F19904F722AF0B1500D13F87 /* LaunchScreen.storyboard in Resources */,
 				F19904F422AF0B1500D13F87 /* Assets.xcassets in Resources */,
 				F1E9FEAA22B96C97009C4767 /* WikiViewController.xib in Resources */,
+				F1E9FEB222B989C7009C4767 /* HouseListViewController.xib in Resources */,
+				F1E9FEBA22B99A79009C4767 /* MemberListViewController.xib in Resources */,
 				F12A99EE22B2DD0B00BA2254 /* HouseDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,7 +288,9 @@
 				F1949D8022B3E78F005F40BA /* UIViewController+Navigation.swift in Sources */,
 				F1A437D222B19BE7008FC13E /* Sigil.swift in Sources */,
 				F1A845A122B03117002B8AE9 /* House.swift in Sources */,
+				F1E9FEB922B99A79009C4767 /* MemberListViewController.swift in Sources */,
 				F1A437D722B1A311008FC13E /* Person.swift in Sources */,
+				F1E9FEB122B989C7009C4767 /* HouseListViewController.swift in Sources */,
 				F19904ED22AF0B1400D13F87 /* AppDelegate.swift in Sources */,
 				F1E9FEA922B96C97009C4767 /* WikiViewController.swift in Sources */,
 				F1949D7C22B3DB3E005F40BA /* Repository.swift in Sources */,

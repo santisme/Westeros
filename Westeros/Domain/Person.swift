@@ -35,6 +35,18 @@ extension Person: Hashable {
 }
 
 extension Person {
+    var proxyForComparison: String {
+        return name.uppercased()
+    }
+}
+
+extension Person: Comparable {
+    static func < (lhs: Person, rhs: Person) -> Bool {
+        return lhs.proxyForComparison < rhs.proxyForComparison
+    }
+}
+
+extension Person {
     var fullName: String {
         return "\(self.name) \(self.house.name)"
     }
