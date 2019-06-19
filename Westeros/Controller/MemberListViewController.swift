@@ -15,7 +15,8 @@ final class MemberListViewController: UIViewController {
     
     // MARK: - Properties
     private let model: [Person]
-    
+    private let cellId = "PersonCell"
+
     // MARK: - Inits
     init(model: [Person]) {
         self.model = model
@@ -29,6 +30,9 @@ final class MemberListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        tableView.register(MemberListViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(UINib(nibName: "MemberListViewCell", bundle: nil), forCellReuseIdentifier: cellId)
+        tableView.rowHeight = 180
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -37,6 +41,7 @@ final class MemberListViewController: UIViewController {
 
 // Conformar el controlador al protocolo delegate y datasource
 extension MemberListViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -46,17 +51,28 @@ extension MemberListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellId = "PersonCell"
         
         // Obtenemos la persona que corresponde a la celda
         let person = model[indexPath.row]
         
         // Creamos la celda
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! MemberListViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MemberListViewCell
+
+//        if cell.memberImage == nil {
+//                cell = MemberListViewCell(style: .default, reuseIdentifier: cellId)
+//        }
         
         // Sincronizamos modelo y vista
-        cell.textLabel?.text = person.fullName
-        cell.detailTextLabel?.text = person.alias
+        cell.memberImage?.image = person.image
+        cell.memberName?.text = " \(person.name) "
+        cell.memberName.sizeToFit()
+        if person.alias == "" {
+            cell.memberAlias?.text = person.alias
+        } else {
+            cell.memberAlias?.text = " \(person.alias!) "
+        }
+        cell.memberAlias.sizeToFit()
         
         // Devolvemos la celda
         return cell

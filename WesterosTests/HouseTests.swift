@@ -42,9 +42,9 @@ class HouseTests: XCTestCase {
             url: lannisterURL
         )
         
-        arya = Person(name: "Arya", house: starkHouse)
-        robb = Person(name: "Robb", house: starkHouse)
-        tyrion = Person(name: "Tyrion", house: lannisterHouse)
+        arya = Person(name: "Arya", house: starkHouse, image: UIImage())
+        robb = Person(name: "Robb", house: starkHouse, image: UIImage())
+        tyrion = Person(name: "Tyrion", house: lannisterHouse, image: UIImage())
 
     }
 

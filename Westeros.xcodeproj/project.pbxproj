@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F12A99ED22B2DD0B00BA2254 /* HouseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A99EB22B2DD0B00BA2254 /* HouseDetailViewController.swift */; };
 		F12A99EE22B2DD0B00BA2254 /* HouseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */; };
+		F1397DBC22BA3FB500587BFE /* MemberListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1397DBA22BA3FB500587BFE /* MemberListViewCell.swift */; };
+		F1397DBD22BA3FB500587BFE /* MemberListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1397DBB22BA3FB500587BFE /* MemberListViewCell.xib */; };
 		F1949D7C22B3DB3E005F40BA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1949D7B22B3DB3E005F40BA /* Repository.swift */; };
 		F1949D8022B3E78F005F40BA /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1949D7F22B3E78F005F40BA /* UIViewController+Navigation.swift */; };
 		F1949D8222B3EA59005F40BA /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1949D8122B3EA59005F40BA /* RepositoryTests.swift */; };
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		F12A99EB22B2DD0B00BA2254 /* HouseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailViewController.swift; sourceTree = "<group>"; };
 		F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseDetailViewController.xib; sourceTree = "<group>"; };
+		F1397DBA22BA3FB500587BFE /* MemberListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewCell.swift; sourceTree = "<group>"; };
+		F1397DBB22BA3FB500587BFE /* MemberListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewCell.xib; sourceTree = "<group>"; };
 		F1949D7B22B3DB3E005F40BA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		F1949D7F22B3E78F005F40BA /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		F1949D8122B3EA59005F40BA /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				F1949D7F22B3E78F005F40BA /* UIViewController+Navigation.swift */,
+				F1397DBA22BA3FB500587BFE /* MemberListViewCell.swift */,
+				F1397DBB22BA3FB500587BFE /* MemberListViewCell.xib */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1397DBD22BA3FB500587BFE /* MemberListViewCell.xib in Resources */,
 				F19904F722AF0B1500D13F87 /* LaunchScreen.storyboard in Resources */,
 				F19904F422AF0B1500D13F87 /* Assets.xcassets in Resources */,
 				F1E9FEAA22B96C97009C4767 /* WikiViewController.xib in Resources */,
@@ -285,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F12A99ED22B2DD0B00BA2254 /* HouseDetailViewController.swift in Sources */,
+				F1397DBC22BA3FB500587BFE /* MemberListViewCell.swift in Sources */,
 				F1949D8022B3E78F005F40BA /* UIViewController+Navigation.swift in Sources */,
 				F1A437D222B19BE7008FC13E /* Sigil.swift in Sources */,
 				F1A845A122B03117002B8AE9 /* House.swift in Sources */,

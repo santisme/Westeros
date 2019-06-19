@@ -31,8 +31,8 @@ class PersonTests: XCTestCase {
             url: starkURL
         )
 
-        arya = Person(name: "Arya", house: starkHouse)
-        ned = Person(name: "Eddard", house: starkHouse, alias: "Ned")
+        arya = Person(name: "Arya", house: starkHouse, image: UIImage())
+        ned = Person(name: "Eddard", house: starkHouse, alias: "Ned", image: UIImage())
 
     }
 
@@ -61,7 +61,7 @@ class PersonTests: XCTestCase {
         XCTAssertEqual(ned, ned)
         
         // 2 Identidad
-        let dummyPerson = Person(name: "Eddard", house: starkHouse, alias: "Ned")
+        let dummyPerson = Person(name: "Eddard", house: starkHouse, alias: "Ned", image: UIImage())
         XCTAssertEqual(ned, dummyPerson)
         
         // 3 Desigualdad

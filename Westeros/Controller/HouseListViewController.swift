@@ -12,7 +12,11 @@ final class HouseListViewController: UITableViewController {
     
     // MARK: - Properties
     private let model: [House]
-    
+    private let houseColor = [
+        "stark": [UIColor.lightGray, UIColor.black],
+        "lannister": [UIColor(red: 0.35, green: 0.074, blue: 0.054, alpha: 1.0), UIColor.white],
+        "targaryen": [UIColor.black, UIColor.white]
+    ]
     
     init(model: [House]) {
         self.model = model
@@ -51,14 +55,17 @@ final class HouseListViewController: UITableViewController {
         // Sincronizar modelo House y la vista/celda
         cell.textLabel?.text = house.name
         cell.imageView?.image = house.sigil.image
-        
+        cell.imageView?.sizeToFit()
+        cell.backgroundColor = houseColor[house.name.lowercased()]?[0]
+        cell.textLabel?.textColor = houseColor[house.name.lowercased()]?[1]
+
         // Devolver la celda
         return cell
         
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 100
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

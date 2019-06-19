@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -22,23 +22,32 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lta-mA-gzx">
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lta-mA-gzx">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <wkWebViewConfiguration key="configuration">
                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                         <wkPreferences key="preferences"/>
                     </wkWebViewConfiguration>
                 </wkWebView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7Io-Xb-ug5">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7Io-Xb-ug5">
                     <rect key="frame" x="197" y="438" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7Io-Xb-ug5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JBG-1E-XzU"/>
+                <constraint firstItem="Lta-mA-gzx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="MyN-dP-JFp"/>
+                <constraint firstItem="Lta-mA-gzx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="NAf-PY-kSL"/>
+                <constraint firstItem="Lta-mA-gzx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Quv-dS-mtO"/>
+                <constraint firstItem="7Io-Xb-ug5" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" constant="-5" id="REc-Xo-kol"/>
+                <constraint firstItem="Lta-mA-gzx" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="aXX-5V-8kb"/>
+                <constraint firstAttribute="trailing" secondItem="Lta-mA-gzx" secondAttribute="trailing" id="dQB-6C-sRr"/>
+                <constraint firstItem="Lta-mA-gzx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="emO-5I-O9z"/>
+                <constraint firstItem="Lta-mA-gzx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="p18-N0-mna"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="131.8840579710145" y="152.67857142857142"/>
+            <point key="canvasLocation" x="128.98550724637681" y="152.00892857142856"/>
         </view>
     </objects>
 </document>

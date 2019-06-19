@@ -6,17 +6,19 @@
 //  Copyright © 2019 Santiago Sanchez merino. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class Person {
     let name: String
     let house: House
     var alias: String?
-    
-    init(name: String, house: House, alias: String? = "") {
+    let image: UIImage
+
+    init(name: String, house: House, alias: String? = "", image: UIImage) {
         self.name = name
         self.house = house
         self.alias = alias
+        self.image = image
     }
 }
 
