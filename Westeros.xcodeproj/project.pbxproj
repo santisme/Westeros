@@ -89,19 +89,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F12A99EA22B2DC5500BA2254 /* Controller */ = {
+		F12A99EA22B2DC5500BA2254 /* HouseList */ = {
+			isa = PBXGroup;
+			children = (
+				F1E9FEAF22B989C7009C4767 /* HouseListViewController.swift */,
+				F1E9FEB022B989C7009C4767 /* HouseListViewController.xib */,
+			);
+			path = HouseList;
+			sourceTree = "<group>";
+		};
+		F137397922BB8A570044D285 /* MemberList */ = {
+			isa = PBXGroup;
+			children = (
+				F137397A22BB8A950044D285 /* CustomViews */,
+				F1E9FEB722B99A79009C4767 /* MemberListViewController.swift */,
+				F1E9FEB822B99A79009C4767 /* MemberListViewController.xib */,
+			);
+			path = MemberList;
+			sourceTree = "<group>";
+		};
+		F137397A22BB8A950044D285 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				F1397DBA22BA3FB500587BFE /* MemberListViewCell.swift */,
+				F1397DBB22BA3FB500587BFE /* MemberListViewCell.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		F137397B22BB8AD20044D285 /* HouseDetail */ = {
 			isa = PBXGroup;
 			children = (
 				F12A99EB22B2DD0B00BA2254 /* HouseDetailViewController.swift */,
 				F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */,
+			);
+			path = HouseDetail;
+			sourceTree = "<group>";
+		};
+		F137397C22BB8AEB0044D285 /* WikiView */ = {
+			isa = PBXGroup;
+			children = (
 				F1E9FEA722B96C97009C4767 /* WikiViewController.swift */,
 				F1E9FEA822B96C97009C4767 /* WikiViewController.xib */,
-				F1E9FEAF22B989C7009C4767 /* HouseListViewController.swift */,
-				F1E9FEB022B989C7009C4767 /* HouseListViewController.xib */,
-				F1E9FEB722B99A79009C4767 /* MemberListViewController.swift */,
-				F1E9FEB822B99A79009C4767 /* MemberListViewController.xib */,
 			);
-			path = Controller;
+			path = WikiView;
+			sourceTree = "<group>";
+		};
+		F137397D22BB8B370044D285 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F137397B22BB8AD20044D285 /* HouseDetail */,
+				F12A99EA22B2DC5500BA2254 /* HouseList */,
+				F137397922BB8A570044D285 /* MemberList */,
+				F137397C22BB8AEB0044D285 /* WikiView */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F1949D7D22B3DD22005F40BA /* Repositories */ = {
@@ -116,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				F1949D7F22B3E78F005F40BA /* UIViewController+Navigation.swift */,
-				F1397DBA22BA3FB500587BFE /* MemberListViewCell.swift */,
-				F1397DBB22BA3FB500587BFE /* MemberListViewCell.xib */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -145,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				F1949D7E22B3E72D005F40BA /* Additions */,
-				F12A99EA22B2DC5500BA2254 /* Controller */,
+				F137397D22BB8B370044D285 /* Controllers */,
 				F1A8459D22B02C86002B8AE9 /* Domain */,
 				F19904EC22AF0B1400D13F87 /* AppDelegate.swift */,
 				F19904F322AF0B1500D13F87 /* Assets.xcassets */,
