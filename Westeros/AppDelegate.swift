@@ -24,11 +24,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let houses = Repository.local.houses
 
         // Creamos el controlador
-        let houseListController = HouseListViewController(model: houses)
-        window?.rootViewController = houseListController.wrappedInNavigation
+        let houseListViewController = HouseListViewController(model: houses)
+        let houseDetailViewController = HouseDetailViewController(house: houseListViewController.lastelectedHouse())
+        houseListViewController.delegate = houseDetailViewController
+        
+        // Los envolvemos en Navigation controller
+        let houseListNavigation = houseListViewController.wrappedInNavigation
+        let houseDetailNavigation = houseDetailViewController.wrappedInNavigation
+
+        // Creamos el SplitViewController
+        let splitViewController = UISplitViewController()
+        splitViewController.viewControllers = [
+            houseListNavigation,    // Master
+            houseDetailNavigation   // Detail
+        ]
+
+        splitViewController.preferredDisplayMode = .primaryOverlay
+        splitViewController.preferredDisplayMode = .allVisible
+        splitViewController.delegate = houseListViewController
+//        splitViewController.delegate = houseDetailViewController
+        window?.rootViewController = splitViewController
         
         return true
     }
 
 }
-

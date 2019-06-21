@@ -28,19 +28,19 @@ final class MemberListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.register(MemberListViewCell.self, forCellReuseIdentifier: cellId)
         tableView.register(UINib(nibName: "MemberListViewCell", bundle: nil), forCellReuseIdentifier: cellId)
-        tableView.rowHeight = 180
         tableView.delegate = self
         tableView.dataSource = self
     }
     
 }
 
+// MARK: - Protocolos
 // Conformar el controlador al protocolo delegate y datasource
-extension MemberListViewController: UITableViewDelegate, UITableViewDataSource {
+extension MemberListViewController:  UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -56,12 +56,7 @@ extension MemberListViewController: UITableViewDelegate, UITableViewDataSource {
         let person = model[indexPath.row]
         
         // Creamos la celda
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! MemberListViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MemberListViewCell
-
-//        if cell.memberImage == nil {
-//                cell = MemberListViewCell(style: .default, reuseIdentifier: cellId)
-//        }
         
         // Sincronizamos modelo y vista
         cell.memberImage?.image = person.image
@@ -78,4 +73,14 @@ extension MemberListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+}
+
+extension MemberListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if UIDevice.current.orientation == UIDeviceOrientation.portrait {
+            return 200
+        } else {
+            return 300
+        }
+    }
 }

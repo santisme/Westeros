@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F12A99ED22B2DD0B00BA2254 /* HouseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A99EB22B2DD0B00BA2254 /* HouseDetailViewController.swift */; };
 		F12A99EE22B2DD0B00BA2254 /* HouseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */; };
+		F137397F22BC3A8C0044D285 /* NotificationName+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137397E22BC3A8C0044D285 /* NotificationName+Additions.swift */; };
 		F1397DBC22BA3FB500587BFE /* MemberListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1397DBA22BA3FB500587BFE /* MemberListViewCell.swift */; };
 		F1397DBD22BA3FB500587BFE /* MemberListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1397DBB22BA3FB500587BFE /* MemberListViewCell.xib */; };
 		F1949D7C22B3DB3E005F40BA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1949D7B22B3DB3E005F40BA /* Repository.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		F12A99EB22B2DD0B00BA2254 /* HouseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailViewController.swift; sourceTree = "<group>"; };
 		F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseDetailViewController.xib; sourceTree = "<group>"; };
+		F137397E22BC3A8C0044D285 /* NotificationName+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Additions.swift"; sourceTree = "<group>"; };
 		F1397DBA22BA3FB500587BFE /* MemberListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewCell.swift; sourceTree = "<group>"; };
 		F1397DBB22BA3FB500587BFE /* MemberListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewCell.xib; sourceTree = "<group>"; };
 		F1949D7B22B3DB3E005F40BA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				F1949D7F22B3E78F005F40BA /* UIViewController+Navigation.swift */,
+				F137397E22BC3A8C0044D285 /* NotificationName+Additions.swift */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				F1E9FEB122B989C7009C4767 /* HouseListViewController.swift in Sources */,
 				F19904ED22AF0B1400D13F87 /* AppDelegate.swift in Sources */,
 				F1E9FEA922B96C97009C4767 /* WikiViewController.swift in Sources */,
+				F137397F22BC3A8C0044D285 /* NotificationName+Additions.swift in Sources */,
 				F1949D7C22B3DB3E005F40BA /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

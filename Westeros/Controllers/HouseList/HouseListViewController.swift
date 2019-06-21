@@ -8,15 +8,33 @@
 
 import UIKit
 
+// Con class solo lo pueden conformar clases o reference types
+protocol HouseListViewControllerDelegate: class {
+    // Should
+    // Will
+    // Did
+    // Se asigna el siguiente nomber de la función por convención:
+    // <nombre_del_objeto_que_tiene_un_delegado>(_ <el propio objeto que tiene el delegado>: <clase_del_objeto>,
+    // <evento_que_se_comunica> <nombre_objeto_que_se_envia>: <clase_del_objeto>
+    func houseListViewController(_ viewController: HouseListViewController, didSelectHouse house: House)
+}
+
 final class HouseListViewController: UITableViewController {
     
     // MARK: - Properties
     private let model: [House]
+    // Se declara la variable delegate. Si apunta a una clase, siempre debe ser weak para que no cuente en ARC
+    weak var delegate: HouseListViewControllerDelegate?
     private let houseColor = [
         "stark": [UIColor.lightGray, UIColor.black],
         "lannister": [UIColor(red: 0.35, green: 0.074, blue: 0.054, alpha: 1.0), UIColor.white],
         "targaryen": [UIColor.black, UIColor.white]
     ]
+    
+    enum Constants {
+        static let HOUSE_KEY = "HouseKey"
+        static let LAST_HOUSE_KEY = "LastHouseKey"
+    }
     
     init(model: [House]) {
         self.model = model
@@ -71,12 +89,56 @@ final class HouseListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Averiguar que casa se ha selecionado
         let house = model[indexPath.row]
+
+        // Mostramos la detailView del SplitView
+        // Obtenemos el DetailViewController del delegado.
+        // Esto es necesario porque la selección de la celda se comunica al controlador delegado
+        // para que actualice su modelo y vista
+        guard let detailViewController = delegate as? HouseDetailViewController,
+            // Obtenermos el NavigationController que envuelve el DetailViewController
+            let detailNavigationController = detailViewController.navigationController,
+            // Mostramos la vista de detalle con el controlador de navegación de detalle
+            ((splitViewController?.showDetailViewController(detailNavigationController, sender: nil)) != nil) else {
+                return
+        }
+
+        // Avisamos al delegado
+        // Informamos de que se ha seleccionado una casa
+        delegate?.houseListViewController(self, didSelectHouse: house)
         
-        // Crear el VC de la casa
-        let houseDetailViewController = HouseDetailViewController(house: house)
+        // Mandamos la misma información vía Notificaciones
+        let notificationCenter = NotificationCenter.default
+        let notification = Notification(
+            name: .houseDidNotificationName,
+            object: self,
+            userInfo: [Constants.HOUSE_KEY: house])
+        notificationCenter.post(notification)
         
-        // Mostrarlo
-        navigationController?.pushViewController(houseDetailViewController, animated: true)
+        saveLastelectedHouse(at: indexPath.row)
         
+    }
+    
+}
+
+extension HouseListViewController {
+    
+    private func saveLastelectedHouse(at index: Int) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(index, forKey: Constants.LAST_HOUSE_KEY)
+        userDefaults.synchronize()
+    }
+    
+    func lastelectedHouse() -> House {
+        let userDefaults = UserDefaults.standard
+        let lastIndex = userDefaults.integer(forKey: Constants.LAST_HOUSE_KEY)
+        
+        return model[lastIndex]
+    }
+}
+
+extension HouseListViewController: UISplitViewControllerDelegate {
+    // Con esta función lo que indicamos es que pliegue la vista de detalle y muestre la main en caso de poco tamaño de pantalla
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
     }
 }

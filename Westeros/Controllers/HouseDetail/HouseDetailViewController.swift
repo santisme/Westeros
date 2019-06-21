@@ -41,6 +41,8 @@ final class HouseDetailViewController: UIViewController {
 
 extension HouseDetailViewController {
     private func syncModelWithView() {
+        loadViewIfNeeded()
+        self.title = house.name
         houseNameLabel.text = "House \(house.name)"
         sigilImageView.image = house.sigil.image
         wordsLabel.text = house.words
@@ -70,19 +72,31 @@ extension HouseDetailViewController {
         // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
         // Crear el wiki WC
         let wikiViewController = WikiViewController(model: house)
-        
+
         // Mostrarlo mediante un push navigation controller
         navigationController?.pushViewController(wikiViewController, animated: true)
         
     }
     
     @objc private func displayMembers() {
-        // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
-        // Crear el wiki WC
-        let memberListViewController = MemberListViewController(model: house.sortedMembers)
+//        // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
+//        // Crear el wiki WC
+//        let memberListViewController = MemberListViewController(model: house.sortedMembers)
+//
+//        // Mostrarlo mediante un push navigation controller
+//        navigationController?.pushViewController(memberListViewController, animated: true)
+//
+    }
+}
+
+extension HouseDetailViewController: HouseListViewControllerDelegate {
+    func houseListViewController(_ viewController: HouseListViewController, didSelectHouse house: House) {
         
-        // Mostrarlo mediante un push navigation controller
-        navigationController?.pushViewController(memberListViewController, animated: true)
+        // Actualizamos el modelo
+        self.house = house
+        
+        // Syncronizamos el modelo con la vista
+        syncModelWithView()
         
     }
 }

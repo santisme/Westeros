@@ -16,7 +16,7 @@ final class WikiViewController: UIViewController {
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     
     // MARK: - Properties
-    private let model: House
+    private var model: House
     
     // MARK: - Inits
     init(model: House) {
@@ -32,18 +32,34 @@ final class WikiViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Asignar delegados
         webView.navigationDelegate = self
         syncModelWithView()
+        
+        // Nos suscribimos a notificaciones.
+        // Es importante desuscribirnos tan pronto como sea posible ej: viewWillDisappear
+        subscribeToNotifications()
+        
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        // Nos desuscribimos de las notificaciones
+        unsubscribeOfNotifications()
+    }
+    
 }
 
 extension WikiViewController {
     
     private func syncModelWithView() {
         title = model.name
+        navigationItem.title = model.name
+        // Importante ocultar y mostrar el boton de vuelta atrás de la barra de navegación para que se actualice
+        navigationItem.hidesBackButton = true
+        navigationItem.hidesBackButton = false
         webView.isHidden = true
         loadingView.isHidden = false
         loadingView.startAnimating()
@@ -77,3 +93,34 @@ extension WikiViewController: WKNavigationDelegate {
     }
 }
 
+extension WikiViewController {
+    private func subscribeToNotifications() {
+        // Nos damos de alta en las notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(houseDidChange), name: .houseDidNotificationName, object: nil)
+    }
+    
+    private func unsubscribeOfNotifications() {
+        // Nos damos de baja de las notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc private func houseDidChange(notification: Notification) {
+        // Obtener la casa
+        guard let dictionary = notification.userInfo else {
+            return
+        }
+        
+        // Actualizar modelo
+        guard let house = dictionary[HouseListViewController.Constants.HOUSE_KEY] as? House else {
+            return
+        }
+        self.model = house
+        
+        // Sincronizar modelo y vista
+        syncModelWithView()
+        
+    }
+
+}
