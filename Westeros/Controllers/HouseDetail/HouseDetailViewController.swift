@@ -8,16 +8,18 @@
 
 import UIKit
 
-//// Con class solo lo pueden conformar clases o reference types
-//protocol HouseDetailControllerDelegate: class {
-//    // Should
-//    // Will
-//    // Did
-//    // Se asigna el siguiente nomber de la función por convención:
-//    // <nombre_del_objeto_que_tiene_un_delegado>(_ <el propio objeto que tiene el delegado>: <clase_del_objeto>,
-//    // <evento_que_se_comunica> <nombre_objeto_que_se_envia>: <clase_del_objeto>
+// Con class solo lo pueden conformar clases o reference types
+protocol HouseDetailControllerDelegate: class {
+    // Should
+    // Will
+    // Did
+    // Se asigna el siguiente nomber de la función por convención:
+    // <nombre_del_objeto_que_tiene_un_delegado>(_ <el propio objeto que tiene el delegado>: <clase_del_objeto>,
+    // <evento_que_se_comunica> <nombre_objeto_que_se_envia>: <clase_del_objeto>
 //    func houseDetailViewController(_ viewController: HouseDetailViewController, didSelectHouse house: House)
-//}
+    func didSelectButton(_ viewController: HouseDetailViewController)
+
+}
 
 final class HouseDetailViewController: UIViewController {
     
@@ -29,7 +31,7 @@ final class HouseDetailViewController: UIViewController {
     // MARK: - Properties
     var house: House
     // Se declara la variable delegate. Si apunta a una clase, siempre debe ser weak para que no cuente en ARC
-//    weak var delegate: HouseDetailControllerDelegate?
+    weak var delegate: HouseDetailControllerDelegate?
     
     // MARK: - Inits
     init(house: House) {
@@ -68,8 +70,6 @@ extension HouseDetailViewController {
 
 extension HouseDetailViewController {
     private func setupUI() {
-        
-//        let segmentControl = UISegmentedControl(items: <#T##[Any]?#>)
         let wikiButton = UIBarButtonItem(
             title: "Wiki",
             style: .plain,
@@ -92,9 +92,8 @@ extension HouseDetailViewController {
         // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
         // Crear el wiki WC
         let wikiViewController = WikiViewController(model: house)
-
-        // Mostrarlo mediante un push navigation controller
-        navigationController?.pushViewController(wikiViewController, animated: true)
+        self.delegate = wikiViewController
+        self.delegate?.didSelectButton(self)
         
     }
     
@@ -102,9 +101,8 @@ extension HouseDetailViewController {
         // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
         // Crear el MemberViewController
         let memberListViewController = MemberListViewController(model: house.sortedMembers)
-//        self.delegate = memberListViewController
-//        self.delegate?.houseDetailViewController(self, didSelectHouse: house)
-        navigationController?.pushViewController(memberListViewController, animated: true)
+        self.delegate = memberListViewController
+        self.delegate?.didSelectButton(self)
 
     }
 
@@ -112,7 +110,6 @@ extension HouseDetailViewController {
 
 extension HouseDetailViewController: HouseListViewControllerDelegate {
     func houseListViewController(_ viewController: HouseListViewController, didSelectHouse house: House) {
-        
         // Actualizamos el modelo
         self.house = house
         

@@ -56,7 +56,6 @@ extension WikiViewController {
     
     private func syncModelWithView() {
         title = "Wiki"
-//        navigationItem.title = model.name
         // Importante ocultar y mostrar el boton de vuelta atrás de la barra de navegación para que se actualice
         navigationItem.hidesBackButton = true
         navigationItem.hidesBackButton = false
@@ -123,4 +122,12 @@ extension WikiViewController {
         
     }
 
+}
+
+extension WikiViewController: HouseDetailControllerDelegate {
+    func didSelectButton(_ viewController: HouseDetailViewController) {
+        // En este caso no es necesario actualizar el modelo porque este delegado se utiliza cuando se pulsa el botón.
+        // Es decir, al hacer click en el botón, es necesario crear un objeto MemberViewController con la casa seleccionada
+        viewController.navigationController?.pushViewController(self, animated: true)
+    }
 }

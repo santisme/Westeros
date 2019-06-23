@@ -18,8 +18,8 @@ final class MemberListViewController: UIViewController {
     private let cellId = "PersonCell"
 
     // MARK: - Inits
-    init(model: [Person]) {
-        self.model = model
+    init(model: [Person]? = [Person]()) {
+        self.model = model!
         super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
         title = "Members"
 
@@ -96,15 +96,6 @@ extension MemberListViewController: UITableViewDelegate {
     }
 }
 
-//extension MemberListViewController: HouseDetailControllerDelegate {
-//    func houseDetailViewController(_ viewController: HouseDetailViewController, didSelectHouse house: House) {
-//        // En este caso no es necesario actualizar el modelo porque este delegado se utiliza cuando se pulsa el botón.
-//        // Es decir, al hacer click en el botón, es necesario crear un objeto MemberViewController con la casa seleccionada
-//        viewController.navigationController?.pushViewController(self, animated: true)
-//        navigationController?.pushViewController(self, animated: true)
-//    }
-//}
-
 extension MemberListViewController {
     private func subscribeToNotifications() {
         // Nos damos de alta en las notificaciones
@@ -138,4 +129,12 @@ extension MemberListViewController {
         navigationItem.setHidesBackButton(false, animated: false)        
     }
     
+}
+
+extension MemberListViewController: HouseDetailControllerDelegate {
+    func didSelectButton(_ viewController: HouseDetailViewController) {
+        // En este caso no es necesario actualizar el modelo porque este delegado se utiliza cuando se pulsa el botón.
+        // Es decir, al hacer click en el botón, es necesario crear un objeto MemberViewController con la casa seleccionada
+        viewController.navigationController?.pushViewController(self, animated: true)
+    }
 }
