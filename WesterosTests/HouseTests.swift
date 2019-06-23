@@ -41,11 +41,11 @@ class HouseTests: XCTestCase {
             words: "Hear me roar!",
             url: lannisterURL
         )
-        
+
         arya = Person(name: "Arya", house: starkHouse, image: UIImage())
         robb = Person(name: "Robb", house: starkHouse, image: UIImage())
         tyrion = Person(name: "Tyrion", house: lannisterHouse, image: UIImage())
-
+        
     }
 
     override func tearDown() {
@@ -61,18 +61,13 @@ class HouseTests: XCTestCase {
     }
     
     func testHouseAddMembers() {
-        starkHouse.addMember(person: arya)
-        XCTAssertEqual(starkHouse.count, 1)
-        starkHouse.addMember(person: robb)
         XCTAssertEqual(starkHouse.count, 2)
         starkHouse.addMember(person: robb)
         XCTAssertEqual(starkHouse.count, 2)
         
-        lannisterHouse.addMember(person: tyrion)
         XCTAssertEqual(lannisterHouse.count, 1)
         starkHouse.addMember(person: tyrion)
         XCTAssertEqual(starkHouse.count, 2)
-        
     }
     
     func testAddPersonsAtOnce() {

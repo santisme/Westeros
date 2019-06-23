@@ -8,6 +8,17 @@
 
 import UIKit
 
+//// Con class solo lo pueden conformar clases o reference types
+//protocol HouseDetailControllerDelegate: class {
+//    // Should
+//    // Will
+//    // Did
+//    // Se asigna el siguiente nomber de la función por convención:
+//    // <nombre_del_objeto_que_tiene_un_delegado>(_ <el propio objeto que tiene el delegado>: <clase_del_objeto>,
+//    // <evento_que_se_comunica> <nombre_objeto_que_se_envia>: <clase_del_objeto>
+//    func houseDetailViewController(_ viewController: HouseDetailViewController, didSelectHouse house: House)
+//}
+
 final class HouseDetailViewController: UIViewController {
     
     // MARK: - Outlets
@@ -17,12 +28,15 @@ final class HouseDetailViewController: UIViewController {
     
     // MARK: - Properties
     var house: House
+    // Se declara la variable delegate. Si apunta a una clase, siempre debe ser weak para que no cuente en ARC
+//    weak var delegate: HouseDetailControllerDelegate?
     
     // MARK: - Inits
     init(house: House) {
         self.house = house
         super.init(nibName: nil, bundle: nil)
         self.title = house.name
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,6 +55,9 @@ final class HouseDetailViewController: UIViewController {
 
 extension HouseDetailViewController {
     private func syncModelWithView() {
+        // Importante cuando implementamos un UISplitViewController
+        // Es necesario cargar la vista en caso de que no se encuentre visible
+        // cuando la pantalla es pequeña
         loadViewIfNeeded()
         self.title = house.name
         houseNameLabel.text = "House \(house.name)"
@@ -51,6 +68,8 @@ extension HouseDetailViewController {
 
 extension HouseDetailViewController {
     private func setupUI() {
+        
+//        let segmentControl = UISegmentedControl(items: <#T##[Any]?#>)
         let wikiButton = UIBarButtonItem(
             title: "Wiki",
             style: .plain,
@@ -66,6 +85,7 @@ extension HouseDetailViewController {
         )
         // Añadimos el boton al Navigation bar
         navigationItem.rightBarButtonItems = [wikiButton, membersButton]
+
     }
     
     @objc private func displayWiki() {
@@ -79,14 +99,15 @@ extension HouseDetailViewController {
     }
     
     @objc private func displayMembers() {
-//        // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
-//        // Crear el wiki WC
-//        let memberListViewController = MemberListViewController(model: house.sortedMembers)
-//
-//        // Mostrarlo mediante un push navigation controller
-//        navigationController?.pushViewController(memberListViewController, animated: true)
-//
+        // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
+        // Crear el MemberViewController
+        let memberListViewController = MemberListViewController(model: house.sortedMembers)
+//        self.delegate = memberListViewController
+//        self.delegate?.houseDetailViewController(self, didSelectHouse: house)
+        navigationController?.pushViewController(memberListViewController, animated: true)
+
     }
+
 }
 
 extension HouseDetailViewController: HouseListViewControllerDelegate {
@@ -100,3 +121,4 @@ extension HouseDetailViewController: HouseListViewControllerDelegate {
         
     }
 }
+

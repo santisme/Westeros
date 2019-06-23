@@ -10,7 +10,7 @@ import UIKit
 
 final class Person {
     let name: String
-    let house: House
+    unowned let house: House
     var alias: String?
     let image: UIImage
 
@@ -19,6 +19,7 @@ final class Person {
         self.house = house
         self.alias = alias
         self.image = image
+        house.addMember(person: self)
     }
 }
 

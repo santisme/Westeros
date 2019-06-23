@@ -55,8 +55,8 @@ final class WikiViewController: UIViewController {
 extension WikiViewController {
     
     private func syncModelWithView() {
-        title = model.name
-        navigationItem.title = model.name
+        title = "Wiki"
+//        navigationItem.title = model.name
         // Importante ocultar y mostrar el boton de vuelta atrás de la barra de navegación para que se actualice
         navigationItem.hidesBackButton = true
         navigationItem.hidesBackButton = false

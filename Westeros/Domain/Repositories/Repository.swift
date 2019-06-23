@@ -50,16 +50,12 @@ final class LocalFactory: HouseFactory {
         )
 
         // Add characters
-        let robb = Person(name: "Robb", house: starkHouse, alias: "The young wolf", image: UIImage(named: "robb")!)
-        let arya = Person(name: "Arya", house: starkHouse, image: UIImage(named: "arya")!)
-        let tyrion = Person(name: "Tyrion", house: lannisterHouse, alias: "The dwarf", image: UIImage(named: "tyrion")!)
-        let jaime = Person(name: "Jaime", house: lannisterHouse, alias: "The kingslayer", image: UIImage(named: "jamie")!)
-        let cersei = Person(name: "Cersei", house: lannisterHouse, image: UIImage(named: "cersei")!)
-        let dani = Person(name: "Daenerys", house: targaryenHouse, alias: "The mother of the dragons", image: UIImage(named: "danaerys")!)
- 
-        starkHouse.addMember(persons: arya, robb)
-        lannisterHouse.addMember(persons: tyrion, jaime, cersei)
-        targaryenHouse.addMember(person: dani)
+        let _ = Person(name: "Robb", house: starkHouse, alias: "The young wolf", image: UIImage(named: "robb")!)
+        let _ = Person(name: "Arya", house: starkHouse, image: UIImage(named: "arya")!)
+        let _ = Person(name: "Tyrion", house: lannisterHouse, alias: "The dwarf", image: UIImage(named: "tyrion")!)
+        let _ = Person(name: "Jaime", house: lannisterHouse, alias: "The kingslayer", image: UIImage(named: "jamie")!)
+        let _ = Person(name: "Cersei", house: lannisterHouse, image: UIImage(named: "cersei")!)
+        let _ = Person(name: "Daenerys", house: targaryenHouse, alias: "The mother of the dragons", image: UIImage(named: "danaerys")!)
         
         return [starkHouse, lannisterHouse, targaryenHouse].sorted()
     }
