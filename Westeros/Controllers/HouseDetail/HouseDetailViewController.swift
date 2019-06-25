@@ -9,7 +9,7 @@
 import UIKit
 
 // Con class solo lo pueden conformar clases o reference types
-protocol HouseDetailControllerDelegate: class {
+protocol HouseDetailViewControllerDelegate: class {
     // Should
     // Will
     // Did
@@ -31,7 +31,7 @@ final class HouseDetailViewController: UIViewController {
     // MARK: - Properties
     var house: House
     // Se declara la variable delegate. Si apunta a una clase, siempre debe ser weak para que no cuente en ARC
-    weak var delegate: HouseDetailControllerDelegate?
+    weak var delegate: HouseDetailViewControllerDelegate?
     
     // MARK: - Inits
     init(house: House) {

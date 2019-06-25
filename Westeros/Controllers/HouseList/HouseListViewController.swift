@@ -128,7 +128,7 @@ extension HouseListViewController {
         userDefaults.synchronize()
     }
     
-    func lastelectedHouse() -> House {
+    func lastSelectedHouse() -> House {
         let userDefaults = UserDefaults.standard
         let lastIndex = userDefaults.integer(forKey: Constants.LAST_HOUSE_KEY)
         

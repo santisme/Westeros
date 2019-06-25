@@ -68,3 +68,34 @@ final class LocalFactory: HouseFactory {
         return houses.filter(theFilter)
     }
 }
+
+protocol SeasonFactory {
+    var seasons: [Season] { get }
+}
+
+extension LocalFactory: SeasonFactory {
+//    https://5cb8efd61551570014da43e7.mockapi.io/seasons
+    var seasons: [Season] {
+        var seasonList = [Season]()
+        let remoteURLString = "https://5cb8efd61551570014da43e7.mockapi.io/seasons"
+        let remoteURL = URL(string: remoteURLString)
+        
+        do {
+            let remoteStringList = try String(contentsOf: remoteURL!)
+            let remoteJson = remoteStringList.data(using: .utf8)
+            let jsonDecoder = JSONDecoder()
+            seasonList = try jsonDecoder.decode([Season].self, from: remoteJson!)
+        } catch {
+            print("Unexpected Error")
+        }
+        
+        return seasonList
+    }
+
+}
+
+extension LocalFactory {
+    func seasons(filteredBy theFilter: (Season) -> Bool) -> [Season] {
+        return seasons.filter(theFilter)
+    }
+}

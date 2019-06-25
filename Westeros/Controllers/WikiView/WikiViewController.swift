@@ -124,7 +124,7 @@ extension WikiViewController {
 
 }
 
-extension WikiViewController: HouseDetailControllerDelegate {
+extension WikiViewController: HouseDetailViewControllerDelegate {
     func didSelectButton(_ viewController: HouseDetailViewController) {
         // En este caso no es necesario actualizar el modelo porque este delegado se utiliza cuando se pulsa el botón.
         // Es decir, al hacer click en el botón, es necesario crear un objeto MemberViewController con la casa seleccionada

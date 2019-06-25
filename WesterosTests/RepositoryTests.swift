@@ -11,12 +11,16 @@ import XCTest
 
 class RepositoryTests: XCTestCase {
 
+    var seasonList: [Season]!
+
     override func setUp() {
+        seasonList = Repository.local.seasons
     }
 
     override func tearDown() {
     }
 
+    // MARK: - Tests for Houses
     func testHouseRepositoryExistence() {
         XCTAssertNotNil(Repository.local.houses)
     }
@@ -48,5 +52,27 @@ class RepositoryTests: XCTestCase {
 
         filteredHouses = Repository.local.houses(filteredBy: { $0.words == "Winter is coming" })
         XCTAssertEqual(filteredHouses.count, 1)
+    }
+    
+    // MARK: - Test for Seasons
+    func testLocalRepositorySeasonsExistence() {
+        XCTAssertNotNil(seasonList)
+    }
+    
+    func testLocalRepositorySeasonsCorrectCount() {
+        XCTAssertEqual(seasonList.count, 8)
+    }
+    
+    func testLocalRepositorySeasonsFiltering() {
+        // Filtrar aquellas casas cuyos episodios sean 6
+        var filteredSeasons = Repository.local.seasons(filteredBy: { $0.episodeCount() == 6 })
+        XCTAssertEqual(filteredSeasons.count, 1)
+        
+        filteredSeasons = Repository.local.seasons(filteredBy: { $0.name == "Season 1" })
+        XCTAssertEqual(filteredSeasons.count, 1)
+
+        filteredSeasons = Repository.local.seasons(filteredBy: { $0.number == 8 })
+        XCTAssertEqual(filteredSeasons.count, 1)
+
     }
 }
