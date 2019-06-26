@@ -12,12 +12,14 @@ final class Episode {
     // MARK: - Properties
     let title: String
     let airDate: Date
+    let synopsis: String
     weak var season: Season?
     
     // MARK: - Inits
-    internal init(title: String, airDate: Date, season: Season? = nil) {
+    internal init(title: String, airDate: Date, synopsis: String, season: Season? = nil) {
         self.title = title
         self.airDate = airDate
+        self.synopsis = synopsis
         self.season = season
         self.season?.addEpisode(episode: self)
     }
@@ -30,6 +32,7 @@ extension Episode: Decodable {
     enum CodingKeys: String, CodingKey {
         case title
         case episodeAirDate
+        case synopsis
     }
     
     convenience init(from decoder: Decoder) throws {
@@ -37,20 +40,14 @@ extension Episode: Decodable {
         
         let title = try values.decode(String.self, forKey: .title)
         let airDateString = try values.decode(String.self, forKey: .episodeAirDate)
-//        let season = try values.decode(Season.self, forKey: .season)
+        let synopsis = try values.decode(String.self, forKey: .synopsis)
 
         // Convert String date to Date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M dd, yyyy"
         let airDate = dateFormatter.date(from: airDateString) ?? Date.init()
-//        let seasonNumber = try values.decode(Int.self, forKey: .seasonNumber)
 
-        self.init(title: title, airDate: airDate)
-
-//        let season = Season(number: seasonNumber, name: "Season \(seasonNumber)", airDate: airDate, episode: self)
-//        self.season = season
-//        self.init(title: title, airDate: airDate, season: season)
-
+        self.init(title: title, airDate: airDate, synopsis: synopsis)
     }
     
 }

@@ -22,12 +22,12 @@ class SeasonTests: XCTestCase {
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         airDate = dateFormatter.date(from: "17.04.2011") ?? Date.init()
-        season1 = Season(number: 1, name: "Season 1", airDate:  airDate, episode: Episode(title: "Winter is coming", airDate: airDate))
+        season1 = Season(number: 1, name: "Season 1", airDate:  airDate, episode: Episode(title: "Winter is coming", airDate: airDate, synopsis: "Episode 1 Synopsis"))
         airDate = dateFormatter.date(from: "24.04.2011") ?? Date.init()
-        season2 = Season(number: 1, name: "Season 2", airDate:  airDate, episode: Episode(title: "The kingsroad", airDate: airDate))
+        season2 = Season(number: 1, name: "Season 2", airDate:  airDate, episode: Episode(title: "The kingsroad", airDate: airDate, synopsis: "Episode 2 Synopsis"))
 
-        episode1 = Episode(title: "Winter is coming", airDate: airDate, season: season1)
-        episode2 = Episode(title: "The kingsroad", airDate: airDate, season: season2)
+        episode1 = Episode(title: "Winter is coming", airDate: airDate, synopsis: "Episode 1 Synopsis", season: season1)
+        episode2 = Episode(title: "The kingsroad", airDate: airDate, synopsis: "Episode 2 Synopsis", season: season2)
     }
 
     override func tearDown() {
@@ -60,7 +60,7 @@ class SeasonTests: XCTestCase {
         
         // Test Identity
         airDate = dateFormatter.date(from: "17.04.2011") ?? Date.init()
-        let seasonDummy = Season(number: 1, name: "Season 1", airDate:  airDate, episode: Episode(title: "Winter is coming", airDate: airDate))
+        let seasonDummy = Season(number: 1, name: "Season 1", airDate:  airDate, episode: Episode(title: "Winter is coming", airDate: airDate, synopsis: "Episode 1 Synopsis"))
         XCTAssertEqual(season1, seasonDummy)
         
         // Test Not Equality

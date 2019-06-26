@@ -21,11 +21,11 @@ class EpisodeTests: XCTestCase {
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         airDate = dateFormatter.date(from: "17.04.2011") ?? Date.init()
-        episode1 = Episode(title: "Winter is coming", airDate: airDate)
+        episode1 = Episode(title: "Winter is coming", airDate: airDate, synopsis: "Episode 1 Synopsis")
         
         airDate = dateFormatter.date(from: "24.04.2011") ?? Date.init()
-        season = Season(number: 1, name: "Season 1", airDate: airDate, episode: Episode(title: "The kingsroad", airDate: airDate))
-        episode2 = Episode(title: "The kingsroad", airDate: airDate, season: season)
+        season = Season(number: 1, name: "Season 1", airDate: airDate, episode: Episode(title: "The kingsroad", airDate: airDate, synopsis: "Episode 2 Synopsis"))
+        episode2 = Episode(title: "The kingsroad", airDate: airDate, synopsis: "Episode 2 Synopsis", season: season)
     }
 
     override func tearDown() {
@@ -47,6 +47,10 @@ class EpisodeTests: XCTestCase {
 
     }
     
+    func testEpisodeSynopsisExistence() {
+        XCTAssertNotNil(episode1.synopsis)
+    }
+    
     func testEpisodeConformsCustomStringConvertible() {
         XCTAssertNotNil(episode1.description)
         XCTAssertEqual(episode1.description, "17.04.2011 Winter is coming")
@@ -61,11 +65,11 @@ class EpisodeTests: XCTestCase {
 
         // Test Identity
         airDate = dateFormatter.date(from: "17.04.2011") ?? Date.init()
-        var episodeDummy = Episode(title: "Winter is coming", airDate: airDate)
+        var episodeDummy = Episode(title: "Winter is coming", airDate: airDate, synopsis: "Episode 1 Synopsis")
         XCTAssertEqual(episode1, episodeDummy)
 
         // Test Not Equality
-        episodeDummy = Episode(title: "Winter is coming", airDate: airDate, season: season)
+        episodeDummy = Episode(title: "Winter is coming", airDate: airDate, synopsis: "Episode 1 Synopsis", season: season)
         XCTAssertNotEqual(episode1, episodeDummy)
 
     }

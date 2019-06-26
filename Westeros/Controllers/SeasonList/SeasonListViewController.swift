@@ -46,9 +46,8 @@ final class SeasonListViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        // Do any additional setup after loading the view.
     }
-
+    
 }
 
 extension SeasonListViewController: UITableViewDataSource {
@@ -61,11 +60,13 @@ extension SeasonListViewController: UITableViewDataSource {
         let season = model[indexPath.row]
         
         // Creamos la celda
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) ?? UITableViewCell(style: .default, reuseIdentifier: cellId)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
         
         // Sincronizamos modelo y vista
         cell.textLabel?.text = season.name
-        cell.detailTextLabel?.text = "AirDate: \(season.airDate)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        cell.detailTextLabel?.text = "AirDate: \(dateFormatter.string(from: season.airDate))"
         
         // Devolvemos la celda
         return cell
@@ -107,7 +108,7 @@ extension SeasonListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
     
 }
@@ -125,5 +126,12 @@ extension SeasonListViewController {
         let lastIndex = userDefaults.integer(forKey: Constants.LAST_SEASON_KEY)
         
         return model[lastIndex]
+    }
+}
+
+extension SeasonListViewController: UISplitViewControllerDelegate {
+    // Con esta función lo que indicamos es que pliegue la vista de detalle y muestre la main en caso de poco tamaño de pantalla
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
     }
 }

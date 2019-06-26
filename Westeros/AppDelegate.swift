@@ -55,8 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         splitViewController.preferredDisplayMode = .primaryOverlay
         splitViewController.preferredDisplayMode = .allVisible
-        splitViewController.delegate = houseListViewController
-//        splitViewController.delegate = houseDetailViewController
+        splitViewController.delegate = seasonListViewController
+
+//        splitViewController.delegate = houseListViewController
         window?.rootViewController = splitViewController
         
         return true

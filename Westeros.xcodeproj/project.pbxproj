@@ -13,6 +13,10 @@
 		F1318E5F22C0D2AA00E5C225 /* SeasonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1318E5E22C0D2AA00E5C225 /* SeasonTests.swift */; };
 		F1318E6122C0D3DF00E5C225 /* EpisodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1318E6022C0D3DF00E5C225 /* EpisodeTests.swift */; };
 		F1318E6322C0D4F900E5C225 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1318E6222C0D4F900E5C225 /* Episode.swift */; };
+		F136E57022C3D97700CBB45B /* EpisodeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F136E56E22C3D97700CBB45B /* EpisodeListViewController.swift */; };
+		F136E57122C3D97700CBB45B /* EpisodeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F136E56F22C3D97700CBB45B /* EpisodeListViewController.xib */; };
+		F136E57422C3DC0E00CBB45B /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F136E57222C3DC0E00CBB45B /* EpisodeDetailViewController.swift */; };
+		F136E57522C3DC0E00CBB45B /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F136E57322C3DC0E00CBB45B /* EpisodeDetailViewController.xib */; };
 		F137397F22BC3A8C0044D285 /* NotificationName+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137397E22BC3A8C0044D285 /* NotificationName+Additions.swift */; };
 		F137F41522C2D3B6009C8F8B /* SeasonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137F41322C2D3B6009C8F8B /* SeasonListViewController.swift */; };
 		F137F41622C2D3B6009C8F8B /* SeasonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F137F41422C2D3B6009C8F8B /* SeasonListViewController.xib */; };
@@ -57,6 +61,10 @@
 		F1318E5E22C0D2AA00E5C225 /* SeasonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTests.swift; sourceTree = "<group>"; };
 		F1318E6022C0D3DF00E5C225 /* EpisodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTests.swift; sourceTree = "<group>"; };
 		F1318E6222C0D4F900E5C225 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		F136E56E22C3D97700CBB45B /* EpisodeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListViewController.swift; sourceTree = "<group>"; };
+		F136E56F22C3D97700CBB45B /* EpisodeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeListViewController.xib; sourceTree = "<group>"; };
+		F136E57222C3DC0E00CBB45B /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		F136E57322C3DC0E00CBB45B /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 		F137397E22BC3A8C0044D285 /* NotificationName+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Additions.swift"; sourceTree = "<group>"; };
 		F137F41322C2D3B6009C8F8B /* SeasonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonListViewController.swift; sourceTree = "<group>"; };
 		F137F41422C2D3B6009C8F8B /* SeasonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonListViewController.xib; sourceTree = "<group>"; };
@@ -189,6 +197,8 @@
 		F137F41822C2D8AA009C8F8B /* EpisodeList */ = {
 			isa = PBXGroup;
 			children = (
+				F136E56E22C3D97700CBB45B /* EpisodeListViewController.swift */,
+				F136E56F22C3D97700CBB45B /* EpisodeListViewController.xib */,
 			);
 			path = EpisodeList;
 			sourceTree = "<group>";
@@ -196,6 +206,8 @@
 		F137F41922C2D8B4009C8F8B /* EpisodeDetail */ = {
 			isa = PBXGroup;
 			children = (
+				F136E57222C3DC0E00CBB45B /* EpisodeDetailViewController.swift */,
+				F136E57322C3DC0E00CBB45B /* EpisodeDetailViewController.xib */,
 			);
 			path = EpisodeDetail;
 			sourceTree = "<group>";
@@ -368,7 +380,9 @@
 			files = (
 				F1397DBD22BA3FB500587BFE /* MemberListViewCell.xib in Resources */,
 				F137F41622C2D3B6009C8F8B /* SeasonListViewController.xib in Resources */,
+				F136E57122C3D97700CBB45B /* EpisodeListViewController.xib in Resources */,
 				F19904F722AF0B1500D13F87 /* LaunchScreen.storyboard in Resources */,
+				F136E57522C3DC0E00CBB45B /* EpisodeDetailViewController.xib in Resources */,
 				F137F41D22C2DE0E009C8F8B /* SeasonDetailViewController.xib in Resources */,
 				F19904F422AF0B1500D13F87 /* Assets.xcassets in Resources */,
 				F1E9FEAA22B96C97009C4767 /* WikiViewController.xib in Resources */,
@@ -404,6 +418,8 @@
 				F1318E5D22C0D27E00E5C225 /* Season.swift in Sources */,
 				F1318E6322C0D4F900E5C225 /* Episode.swift in Sources */,
 				F19904ED22AF0B1400D13F87 /* AppDelegate.swift in Sources */,
+				F136E57022C3D97700CBB45B /* EpisodeListViewController.swift in Sources */,
+				F136E57422C3DC0E00CBB45B /* EpisodeDetailViewController.swift in Sources */,
 				F137F41C22C2DE0E009C8F8B /* SeasonDetailViewController.swift in Sources */,
 				F1E9FEA922B96C97009C4767 /* WikiViewController.swift in Sources */,
 				F137397F22BC3A8C0044D285 /* NotificationName+Additions.swift in Sources */,
