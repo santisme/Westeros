@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F12A99ED22B2DD0B00BA2254 /* HouseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A99EB22B2DD0B00BA2254 /* HouseDetailViewController.swift */; };
 		F12A99EE22B2DD0B00BA2254 /* HouseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */; };
+		F12D1ADC22C4CE0A00DCB868 /* MasterTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D1ADB22C4CE0A00DCB868 /* MasterTabBarController.swift */; };
 		F1318E5D22C0D27E00E5C225 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1318E5C22C0D27E00E5C225 /* Season.swift */; };
 		F1318E5F22C0D2AA00E5C225 /* SeasonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1318E5E22C0D2AA00E5C225 /* SeasonTests.swift */; };
 		F1318E6122C0D3DF00E5C225 /* EpisodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1318E6022C0D3DF00E5C225 /* EpisodeTests.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		F12A99EB22B2DD0B00BA2254 /* HouseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailViewController.swift; sourceTree = "<group>"; };
 		F12A99EC22B2DD0B00BA2254 /* HouseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseDetailViewController.xib; sourceTree = "<group>"; };
+		F12D1ADB22C4CE0A00DCB868 /* MasterTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTabBarController.swift; sourceTree = "<group>"; };
 		F1318E5C22C0D27E00E5C225 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		F1318E5E22C0D2AA00E5C225 /* SeasonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTests.swift; sourceTree = "<group>"; };
 		F1318E6022C0D3DF00E5C225 /* EpisodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTests.swift; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 			path = HouseList;
 			sourceTree = "<group>";
 		};
+		F12D1ADA22C4CDE000DCB868 /* MasterTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F12D1ADB22C4CE0A00DCB868 /* MasterTabBarController.swift */,
+			);
+			path = MasterTabBar;
+			sourceTree = "<group>";
+		};
 		F137397922BB8A570044D285 /* MemberList */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +174,7 @@
 		F137397D22BB8B370044D285 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F12D1ADA22C4CDE000DCB868 /* MasterTabBar */,
 				F137F41922C2D8B4009C8F8B /* EpisodeDetail */,
 				F137F41822C2D8AA009C8F8B /* EpisodeList */,
 				F137F41722C2D89C009C8F8B /* SeasonDetail */,
@@ -424,6 +435,7 @@
 				F1E9FEA922B96C97009C4767 /* WikiViewController.swift in Sources */,
 				F137397F22BC3A8C0044D285 /* NotificationName+Additions.swift in Sources */,
 				F1949D7C22B3DB3E005F40BA /* Repository.swift in Sources */,
+				F12D1ADC22C4CE0A00DCB868 /* MasterTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

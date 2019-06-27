@@ -58,6 +58,7 @@ extension Season: Decodable {
         
         // Call to Season class init
         self.init(number: seasonNumber, name: "Season \(seasonNumber)", airDate: seasonAirDate, episode: episodes.first!)
+
         episodes.forEach {
             self.addEpisode(episode: $0)
         }

@@ -19,7 +19,7 @@ protocol EpisodeListViewControllerDelegate: class {
 final class EpisodeListViewController: UIViewController {
 
     // MARK: - Properties
-    private var model: [Episode]
+    var model: [Episode]
     private let cellId = "EpisodeCell"
     weak var delegate: EpisodeListViewControllerDelegate?
 
@@ -47,6 +47,7 @@ final class EpisodeListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToNotifications()
+        loadViewIfNeeded()
         
     }
     
@@ -89,6 +90,7 @@ extension EpisodeListViewController: UITableViewDelegate {
         // Informamos de que se ha seleccionado una casa
         let episodeDetailViewController = EpisodeDetailViewController(model: episode)
         delegate = episodeDetailViewController
+        episodeDetailViewController.delegate = self
         delegate?.episodeListViewController(self, didSelectEpisode: episode)
                 
     }
@@ -138,4 +140,23 @@ extension EpisodeListViewController {
         navigationItem.setHidesBackButton(true, animated: false)
         navigationItem.setHidesBackButton(false, animated: false)
     }
+}
+
+extension EpisodeListViewController: EpisodeDetailViewControllerDelegate {
+    func episodeDetailViewController(_ viewController: EpisodeDetailViewController, didSelectSeason season: Season) {
+        self.model = season.sortedEpisodes
+        
+        // Sincronizar modelo y vista
+        self.tableView.reloadData()
+        
+        // Importante ocultar y mostrar el boton de vuelta atrás de la barra de navegación para que se actualice
+        navigationItem.setHidesBackButton(true, animated: false)
+        navigationItem.setHidesBackButton(false, animated: false)
+        
+        // Pop de la vista en el NavigationController
+        viewController.navigationController?.popViewController(animated: true)
+
+    }
+    
+    
 }

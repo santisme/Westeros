@@ -26,40 +26,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Creamos un array de casas
         let houses = Repository.local.houses
 
-        // Creamos el controlador
+        // Creamos los controladores HouseList y HouseDetail
         let houseListViewController = HouseListViewController(model: houses)
         let houseDetailViewController = HouseDetailViewController(house: houseListViewController.lastSelectedHouse())
         houseListViewController.delegate = houseDetailViewController
         
-        // Los envolvemos en Navigation controller
-//        let masterNavigation = houseListViewController.wrappedInNavigation
-//        let detailNavigation = houseDetailViewController.wrappedInNavigation
-
+        // Creamos el DetailNavigation para el UISplitViewController
+        let detailNavigation = houseDetailViewController.wrappedInNavigation
         
-        // Creamos el controlador
+        // Creamos el controlador para SeasonList y SeasonDetail
         let seasonListViewController = SeasonListViewController(model: seasons)
         let seasonDetailViewController = SeasonDetailViewController(model: seasonListViewController.lastSelectedSeason())
         seasonListViewController.delegate = seasonDetailViewController
-        
-        // Los envolvemos en Navigation controller
-        let masterNavigation = seasonListViewController.wrappedInNavigation
-        let detailNavigation = seasonDetailViewController.wrappedInNavigation
 
-        
+        // Creamos un UITabBarController custom
+        let tabBarController = MasterTabBarController(houseListViewController: houseListViewController, seasonListViewController: seasonListViewController)
+
         // Creamos el SplitViewController
         let splitViewController = UISplitViewController()
         splitViewController.viewControllers = [
-            masterNavigation,    // Master
-            detailNavigation   // Detail
+            tabBarController,    // Master
+            detailNavigation     // Detail
         ]
 
         splitViewController.preferredDisplayMode = .primaryOverlay
         splitViewController.preferredDisplayMode = .allVisible
-        splitViewController.delegate = seasonListViewController
+        splitViewController.delegate = tabBarController
 
-//        splitViewController.delegate = houseListViewController
         window?.rootViewController = splitViewController
-        
+
         return true
     }
 

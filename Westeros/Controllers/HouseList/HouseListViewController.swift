@@ -99,9 +99,9 @@ final class HouseListViewController: UITableViewController {
             let detailNavigationController = detailViewController.navigationController,
             // Mostramos la vista de detalle con el controlador de navegación de detalle
             ((splitViewController?.showDetailViewController(detailNavigationController, sender: nil)) != nil) else {
-                return
+                fatalError("HouseListViewController - delegate is nil")
         }
-
+        
         // Avisamos al delegado
         // Informamos de que se ha seleccionado una casa
         delegate?.houseListViewController(self, didSelectHouse: house)
@@ -136,9 +136,9 @@ extension HouseListViewController {
     }
 }
 
-extension HouseListViewController: UISplitViewControllerDelegate {
-    // Con esta función lo que indicamos es que pliegue la vista de detalle y muestre la main en caso de poco tamaño de pantalla
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return true
-    }
-}
+//extension HouseListViewController: UISplitViewControllerDelegate {
+//    // Con esta función lo que indicamos es que pliegue la vista de detalle y muestre la main en caso de poco tamaño de pantalla
+//    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+//        return true
+//    }
+//}

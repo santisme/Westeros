@@ -8,9 +8,19 @@
 
 import UIKit
 
+protocol EpisodeDetailViewControllerDelegate: class {
+    // Se asigna el siguiente nomber de la función por convención:
+    // <nombre_del_objeto_que_tiene_un_delegado>(_ <el propio objeto que tiene el delegado>: <clase_del_objeto>,
+    // <evento_que_se_comunica> <nombre_objeto_que_se_envia>: <clase_del_objeto>
+    //    func houseDetailViewController(_ viewController: HouseDetailViewController, didSelectHouse house: House)
+    func episodeDetailViewController(_ viewController: EpisodeDetailViewController, didSelectSeason season: Season)
+}
+
+
 final class EpisodeDetailViewController: UIViewController {
     // MARK: - Properties
     private var model: Episode
+    weak var delegate: EpisodeDetailViewControllerDelegate?
     
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -29,11 +39,21 @@ final class EpisodeDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeOfNotifications()
+    }
 }
 
 // MARK: - Extensions
@@ -47,7 +67,6 @@ extension EpisodeDetailViewController {
         self.synopsisLabel.text = self.model.synopsis
         self.titleLabel.sizeToFit()
         self.airDateLabel.sizeToFit()
-//        self.synopsisLabel.sizeToFit()
     }
 }
 
@@ -62,4 +81,34 @@ extension EpisodeDetailViewController: EpisodeListViewControllerDelegate {
 
     }
     
+}
+
+extension EpisodeDetailViewController {
+    private func subscribeToNotifications() {
+        // Nos damos de alta en las notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(seasonDidChange), name: .seasonDidNotificationName, object: nil)
+    }
+    
+    private func unsubscribeOfNotifications() {
+        // Nos damos de baja de las notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc private func seasonDidChange(notification: Notification) {
+        // Obtener la casa
+        guard let dictionary = notification.userInfo else {
+            return
+        }
+        
+        // Actualizar modelo
+        guard let season = dictionary[SeasonListViewController.Constants.SEASON_KEY] as? Season else {
+            return
+        }
+
+        delegate?.episodeDetailViewController(self, didSelectSeason: season)
+//        navigationController?.popViewController(animated: true)
+
+    }
 }
