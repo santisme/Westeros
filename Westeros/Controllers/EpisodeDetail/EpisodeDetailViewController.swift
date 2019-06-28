@@ -65,8 +65,8 @@ extension EpisodeDetailViewController {
         dateFormatter.dateFormat = "dd.MM.yyyy"
         self.airDateLabel.text = "AirDate: \(dateFormatter.string(from: self.model.airDate))"
         self.synopsisLabel.text = self.model.synopsis
-        self.titleLabel.sizeToFit()
-        self.airDateLabel.sizeToFit()
+//        self.titleLabel.sizeToFit()
+//        self.airDateLabel.sizeToFit()
     }
 }
 

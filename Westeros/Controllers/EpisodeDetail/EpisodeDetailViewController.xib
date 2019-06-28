@@ -23,20 +23,20 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3C-Oj-Se5">
-                    <rect key="frame" x="176" y="109" width="62" height="29"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3C-Oj-Se5">
+                    <rect key="frame" x="176.5" y="109" width="61.5" height="29"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsE-QS-D0O">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsE-QS-D0O">
                     <rect key="frame" x="20" y="196" width="374" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a60-Sk-EhS">
-                    <rect key="frame" x="176" y="146" width="38" height="18"/>
+                    <rect key="frame" x="176.5" y="146" width="38" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -45,6 +45,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="rsE-QS-D0O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="8aa-V0-aqa"/>
+                <constraint firstItem="G3C-Oj-Se5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Cac-UC-QCb"/>
                 <constraint firstItem="G3C-Oj-Se5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="65" id="DAX-Uf-3ti"/>
                 <constraint firstItem="rsE-QS-D0O" firstAttribute="top" secondItem="a60-Sk-EhS" secondAttribute="bottom" constant="32" id="LNT-4x-rVm"/>
                 <constraint firstItem="G3C-Oj-Se5" firstAttribute="leading" secondItem="a60-Sk-EhS" secondAttribute="leading" id="Vnw-FZ-sXm"/>
