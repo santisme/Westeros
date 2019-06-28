@@ -52,6 +52,15 @@ class RepositoryTests: XCTestCase {
 
         filteredHouses = Repository.local.houses(filteredBy: { $0.words == "Winter is coming" })
         XCTAssertEqual(filteredHouses.count, 1)
+
+    }
+    
+    func testLocalRepositoryReturnsHouseByNameTypeSafe() {
+        let filteredHouse = Repository.local.house(named: LocalFactory.Named.Stark)
+        XCTAssertNotNil(filteredHouse)
+        
+        XCTAssertEqual(filteredHouse?.name, "Stark")
+
     }
     
     // MARK: - Test for Seasons
@@ -75,4 +84,5 @@ class RepositoryTests: XCTestCase {
         XCTAssertEqual(filteredSeasons.count, 1)
 
     }
+    
 }

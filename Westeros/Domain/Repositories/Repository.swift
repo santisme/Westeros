@@ -17,10 +17,12 @@ protocol HouseFactory {
     
     func house(named name: String) -> House?
     func houses(filteredBy theFilter: (House) -> Bool) -> [House]
-
+    func house(named: LocalFactory.Named) -> House?
+    
 }
 
 final class LocalFactory: HouseFactory {
+    
     var houses: [House] {
         let starkSigil = Sigil(description: "Warg", image: UIImage(named: "stark")!)
         let lannisterSigil = Sigil(description: "Lion rampant", image: UIImage(named: "lannister")!)
@@ -67,10 +69,19 @@ final class LocalFactory: HouseFactory {
     func houses(filteredBy theFilter: (House) -> Bool) -> [House] {
         return houses.filter(theFilter)
     }
+    
+    func house(named: LocalFactory.Named) -> House? {
+        return houses(filteredBy: { (house) -> Bool in
+            house.name == named.rawValue
+        }).first
+    }
+
 }
 
 protocol SeasonFactory {
     var seasons: [Season] { get }
+    func seasons(filteredBy theFilter: (Season) -> Bool) -> [Season]
+    
 }
 
 extension LocalFactory: SeasonFactory {
@@ -92,10 +103,16 @@ extension LocalFactory: SeasonFactory {
         return seasonList
     }
 
-}
-
-extension LocalFactory {
     func seasons(filteredBy theFilter: (Season) -> Bool) -> [Season] {
         return seasons.filter(theFilter)
+    }
+}
+
+
+extension LocalFactory {
+    public enum Named: String {
+        case Stark
+        case Lannister
+        case Targaryen
     }
 }
