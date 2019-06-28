@@ -31,22 +31,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let houseDetailViewController = HouseDetailViewController(house: houseListViewController.lastSelectedHouse())
         houseListViewController.delegate = houseDetailViewController
         
-        // Creamos el DetailNavigation para el UISplitViewController
-        let detailNavigation = houseDetailViewController.wrappedInNavigation
-        
         // Creamos el controlador para SeasonList y SeasonDetail
         let seasonListViewController = SeasonListViewController(model: seasons)
         let seasonDetailViewController = SeasonDetailViewController(model: seasonListViewController.lastSelectedSeason())
         seasonListViewController.delegate = seasonDetailViewController
 
         // Creamos un UITabBarController custom
-        let tabBarController = MasterTabBarController(houseListViewController: houseListViewController, seasonListViewController: seasonListViewController)
+        let tabBarController = MasterTabBarController(houseListViewController: houseListViewController, houseDetailViewController: houseDetailViewController, seasonListViewController: seasonListViewController, seasonDetailViewController: seasonDetailViewController)
 
         // Creamos el SplitViewController
         let splitViewController = UISplitViewController()
         splitViewController.viewControllers = [
-            tabBarController,    // Master
-            detailNavigation     // Detail
+            tabBarController.wrappedInNavigation,       // Master
+            tabBarController.houseDetailNavigation      // Detail
         ]
 
         splitViewController.preferredDisplayMode = .primaryOverlay

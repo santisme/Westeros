@@ -12,13 +12,28 @@ final class MasterTabBarController: UITabBarController {
     // MARK: - Properties
     var houseListViewController: HouseListViewController
     var seasonListViewController: SeasonListViewController
+    var houseDetailViewController: HouseDetailViewController
+    var seasonDetailViewController: SeasonDetailViewController
+    var houseListNavigation: UINavigationController
+    var seasonListNavigation: UINavigationController
+    var houseDetailNavigation: UINavigationController
+    var seasonDetailNavigation: UINavigationController
     
     // MARK: - Inits
-    init(houseListViewController: HouseListViewController, seasonListViewController: SeasonListViewController) {
+    init(houseListViewController: HouseListViewController, houseDetailViewController: HouseDetailViewController, seasonListViewController: SeasonListViewController, seasonDetailViewController: SeasonDetailViewController) {
         self.houseListViewController = houseListViewController
         self.seasonListViewController = seasonListViewController
+        self.houseDetailViewController = houseDetailViewController
+        self.seasonDetailViewController = seasonDetailViewController
+        self.houseListNavigation = self.houseListViewController.wrappedInNavigation
+        self.seasonListNavigation = self.seasonListViewController.wrappedInNavigation
+        self.houseDetailNavigation = self.houseDetailViewController.wrappedInNavigation
+        self.seasonDetailNavigation = self.seasonDetailViewController.wrappedInNavigation
+
         super.init(nibName: nil, bundle: nil)
+
         syncViewControllers()
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,8 +44,6 @@ final class MasterTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-//        syncViewControllers()
-//        updateSelectedView()
 
     }
     
@@ -45,32 +58,31 @@ final class MasterTabBarController: UITabBarController {
 extension MasterTabBarController {
     private func syncViewControllers() {
         self.viewControllers = [
-            houseListViewController.wrappedInNavigation,
-            seasonListViewController.wrappedInNavigation
+            houseListNavigation,
+            seasonListNavigation
         ]
 
     }
     
     // Actualiza la DetailView del UISplitViewController dependiendo del valoe selecionado
     private func updateSelectedView() {
-        if self.selectedIndex == 1 {
-            // Creamos el controlador para SeasonDetail
-            let seasonDetailViewController = SeasonDetailViewController(model: seasonListViewController.lastSelectedSeason())
-            seasonListViewController.delegate = seasonDetailViewController
+        
+        guard let tabBarNavigation = self.navigationController else {
+            fatalError("MasterTabBarController - navigationController is nil")
+        }
+        
+        if self.selectedIndex == 0 {
             
             splitViewController?.viewControllers = [
-                self.wrappedInNavigation,
-                seasonDetailViewController.wrappedInNavigation
+                tabBarNavigation,
+                houseDetailNavigation
             ]
-            
+
         } else {
-            // Creamos el controlador para HouseDetail
-            let houseDetailViewController = HouseDetailViewController(house: houseListViewController.lastSelectedHouse())
-            houseListViewController.delegate = houseDetailViewController
             
             splitViewController?.viewControllers = [
-                self.wrappedInNavigation,
-                houseDetailViewController.wrappedInNavigation
+                tabBarNavigation,
+                seasonDetailNavigation
             ]
 
         }
