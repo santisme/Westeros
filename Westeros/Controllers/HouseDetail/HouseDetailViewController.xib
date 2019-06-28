@@ -24,9 +24,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Svg-wo-P88">
-                    <rect key="frame" x="0.0" y="175" width="414" height="388"/>
+                    <rect key="frame" x="20" y="175" width="374" height="388"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="Svg-wo-P88" secondAttribute="height" multiplier="207:194" id="tyg-QC-R7U"/>
+                        <constraint firstAttribute="width" secondItem="Svg-wo-P88" secondAttribute="height" multiplier="207:194" constant="-40" id="tyg-QC-R7U"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="House name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvp-ke-eVD">
@@ -55,7 +55,7 @@
                 <constraint firstItem="uS8-gG-uvv" firstAttribute="top" secondItem="Svg-wo-P88" secondAttribute="bottom" constant="56" id="czG-OC-aiO"/>
                 <constraint firstItem="dvp-ke-eVD" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="jXB-ZW-P4S"/>
                 <constraint firstItem="dvp-ke-eVD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="rdd-Fc-Lnc"/>
-                <constraint firstItem="Svg-wo-P88" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="u9G-op-11U"/>
+                <constraint firstItem="Svg-wo-P88" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="u9G-op-11U"/>
                 <constraint firstItem="dvp-ke-eVD" firstAttribute="centerX" secondItem="Svg-wo-P88" secondAttribute="centerX" id="yEG-4Q-eel"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -23,12 +23,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPb-Eo-Vf3">
-                    <rect key="frame" x="188.5" y="148" width="37.5" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kp-2R-UBp">
                     <rect key="frame" x="20" y="200" width="374" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -36,8 +30,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbQ-Ol-eRu">
-                    <rect key="frame" x="188.5" y="111" width="62" height="29"/>
+                    <rect key="frame" x="176" y="111" width="62" height="29"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPb-Eo-Vf3">
+                    <rect key="frame" x="176" y="148" width="37.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -47,10 +47,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Kp-2R-UBp" secondAttribute="trailing" constant="20" id="6fo-zT-aeA"/>
                 <constraint firstItem="5Kp-2R-UBp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="IOd-JH-A80"/>
                 <constraint firstItem="UbQ-Ol-eRu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="67" id="Lzs-8m-sdx"/>
-                <constraint firstItem="5Kp-2R-UBp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OoX-ip-lYf"/>
-                <constraint firstItem="UPb-Eo-Vf3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="T6S-g6-Xdn"/>
-                <constraint firstItem="UPb-Eo-Vf3" firstAttribute="top" secondItem="UbQ-Ol-eRu" secondAttribute="bottom" constant="8" id="Y8y-d7-xpK"/>
-                <constraint firstItem="UPb-Eo-Vf3" firstAttribute="leading" secondItem="UbQ-Ol-eRu" secondAttribute="leading" id="kcl-5G-uOu"/>
+                <constraint firstItem="UPb-Eo-Vf3" firstAttribute="leading" secondItem="UbQ-Ol-eRu" secondAttribute="leading" id="WKm-Jg-hhy"/>
+                <constraint firstItem="UbQ-Ol-eRu" firstAttribute="centerX" secondItem="5Kp-2R-UBp" secondAttribute="centerX" id="XvU-ww-62C"/>
                 <constraint firstItem="UPb-Eo-Vf3" firstAttribute="top" secondItem="UbQ-Ol-eRu" secondAttribute="bottom" constant="8" id="ue3-V3-fqI"/>
                 <constraint firstItem="5Kp-2R-UBp" firstAttribute="top" secondItem="UPb-Eo-Vf3" secondAttribute="bottom" constant="34" id="xxz-2N-rdE"/>
             </constraints>
