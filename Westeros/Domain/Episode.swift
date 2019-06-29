@@ -12,13 +12,15 @@ final class Episode {
     // MARK: - Properties
     let title: String
     let airDate: Date
+    var img: String?
     let synopsis: String
     weak var season: Season?
     
     // MARK: - Inits
-    internal init(title: String, airDate: Date, synopsis: String, season: Season? = nil) {
+    internal init(title: String, airDate: Date, img: String? = nil, synopsis: String, season: Season? = nil) {
         self.title = title
         self.airDate = airDate
+        self.img = img
         self.synopsis = synopsis
         self.season = season
         self.season?.addEpisode(episode: self)
@@ -32,14 +34,18 @@ extension Episode: Decodable {
     enum CodingKeys: String, CodingKey {
         case title
         case episodeAirDate
+        case img
         case synopsis
     }
     
     convenience init(from decoder: Decoder) throws {
+        let imgUrlPrefix = "http://assets.viewers-guide.hbo.com/large"
+        
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         let title = try values.decode(String.self, forKey: .title)
         let airDateString = try values.decode(String.self, forKey: .episodeAirDate)
+        var img = try values.decodeIfPresent(String.self, forKey: .img)
         let synopsis = try values.decode(String.self, forKey: .synopsis)
 
         // Convert String date to Date
@@ -47,7 +53,12 @@ extension Episode: Decodable {
         dateFormatter.dateFormat = "M dd, yyyy"
         let airDate = dateFormatter.date(from: airDateString) ?? Date.init()
 
-        self.init(title: title, airDate: airDate, synopsis: synopsis)
+        if img == nil {
+            self.init(title: title, airDate: airDate, synopsis: synopsis)
+        } else {
+            img = imgUrlPrefix + img!
+            self.init(title: title, airDate: airDate, img: img, synopsis: synopsis)
+        }
     }
     
 }

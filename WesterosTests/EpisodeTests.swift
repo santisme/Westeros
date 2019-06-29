@@ -83,4 +83,9 @@ class EpisodeTests: XCTestCase {
         XCTAssertLessThanOrEqual(episode1, episode2)
         XCTAssertGreaterThan(episode2, episode1)
     }
+    
+    func testEpisodeImageExistence() {
+        let episode3 = Episode(title: "Lord Snow", airDate: airDate, img: "http://assets.viewers-guide.hbo.com/larges1-ep1-episode-selector-542x305.jpg", synopsis: "Ned reaches King’s Landing and realizes that the management system in Westeros in terrible. Bran learns that he will never be able to walk again and Catelyn is heartbroken because of this. She goes to King’s Landing to alert Ned about the intentions of the Lannisters. Catelyn meets Lord Baelish (Littlefinger) on the way. She also discovers that the knife which was found in the tower following Bran’s fall, belonged to Tyrion. Arya starts learning swordsmanship. And Jon Snow has a hard time to make his mark in Castle Black. Meanwhile, Daenerys finds out that she is pregnant.")
+        XCTAssertNotNil(episode3.img)
+    }
 }
