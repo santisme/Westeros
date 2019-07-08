@@ -15,7 +15,8 @@ protocol SeasonDetailViewControllerDelegate: class {
     //    func houseDetailViewController(_ viewController: HouseDetailViewController, didSelectHouse house: House)
     func seasonDetailViewController(didSelectEpisodesButton viewController: SeasonDetailViewController)
 }
-class SeasonDetailViewController: UIViewController {
+
+final class SeasonDetailViewController: UIViewController {
 
     // MARK: - Properties
     private var model: Season
