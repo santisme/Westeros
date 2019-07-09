@@ -1,28 +1,25 @@
 //
-//  EpisodeDetailViewController.swift
+//  MemberDetailViewController.swift
 //  Westeros
 //
-//  Created by Santiago Sanchez merino on 26/06/2019.
+//  Created by Santiago Sanchez merino on 09/07/2019.
 //  Copyright © 2019 Santiago Sanchez merino. All rights reserved.
 //
 
 import UIKit
 
-final class EpisodeDetailViewController: UIViewController {
+class MemberDetailViewController: UIViewController {
     // MARK: - Properties
-    private var model: Episode
+    @IBOutlet weak var memberNameLabel: UILabel!
+    @IBOutlet weak var memberImage: UIImageView!
+    @IBOutlet weak var memberAlias: UILabel!
     
-    // MARK: - Outlets
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var airDateLabel: UILabel!
-    @IBOutlet weak var synopsisLabel: UILabel!
-    
+    let model: Person
     
     // MARK: - Inits
-    init(model: Episode) {
+    init(model: Person) {
         self.model = model
         super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
-        title = self.model.title
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,7 +29,7 @@ final class EpisodeDetailViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        syncModelWithView()
+        syncModelView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,22 +44,19 @@ final class EpisodeDetailViewController: UIViewController {
 }
 
 // MARK: - Extensions
-extension EpisodeDetailViewController {
-    private func syncModelWithView() {
-        loadViewIfNeeded()
-        self.titleLabel.text = self.model.title
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        self.airDateLabel.text = "AirDate: \(dateFormatter.string(from: self.model.airDate))"
-        self.synopsisLabel.text = self.model.synopsis
+extension MemberDetailViewController {
+    func syncModelView() {
+        self.memberNameLabel.text = self.model.name
+        self.memberImage.image = self.model.image
+        self.memberAlias.text = self.model.alias
     }
 }
 
-extension EpisodeDetailViewController {
+extension MemberDetailViewController {
     private func subscribeToNotifications() {
         // Nos damos de alta en las notificaciones
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(seasonDidChange), name: .seasonDidNotificationName, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(houseDidChange), name: .houseDidNotificationName, object: nil)
     }
     
     private func unsubscribeOfNotifications() {
@@ -71,7 +65,8 @@ extension EpisodeDetailViewController {
         notificationCenter.removeObserver(self)
     }
     
-    @objc private func seasonDidChange(notification: Notification) {
+    @objc private func houseDidChange(notification: Notification) {
         navigationController?.popViewController(animated: true)
     }
+    
 }

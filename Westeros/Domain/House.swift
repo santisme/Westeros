@@ -77,11 +77,3 @@ extension House: Comparable {
     }
     
 }
-
-//extension House {
-//    enum Named: String {
-//        case Stark
-//        case Lannister
-//        case Targaryen
-//    }
-//}

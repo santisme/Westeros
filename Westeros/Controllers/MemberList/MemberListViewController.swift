@@ -29,6 +29,9 @@ final class MemberListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        unsubscribeOfNotifications()
+    }
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +45,7 @@ final class MemberListViewController: UIViewController {
         subscribeToNotifications()
         
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        unsubscribeOfNotifications()
-    }
+
 }
 
 // MARK: - Protocolos
@@ -94,6 +93,14 @@ extension MemberListViewController: UITableViewDelegate {
             return 300
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Averiguar que casa se ha selecionado
+        let member = model[indexPath.row]
+        let memberDetailViewController = MemberDetailViewController(model: member)
+        navigationController?.show(memberDetailViewController, sender: nil)
+    }
+    
 }
 
 extension MemberListViewController {
@@ -131,10 +138,10 @@ extension MemberListViewController {
     
 }
 
-extension MemberListViewController: HouseDetailViewControllerDelegate {
-    func didSelectButton(_ viewController: HouseDetailViewController) {
-        // En este caso no es necesario actualizar el modelo porque este delegado se utiliza cuando se pulsa el botón.
-        // Es decir, al hacer click en el botón, es necesario crear un objeto MemberViewController con la casa seleccionada
-        viewController.navigationController?.pushViewController(self, animated: true)
-    }
-}
+//extension MemberListViewController: HouseDetailViewControllerDelegate {
+//    func didSelectButton(_ viewController: HouseDetailViewController) {
+//        // En este caso no es necesario actualizar el modelo porque este delegado se utiliza cuando se pulsa el botón.
+//        // Es decir, al hacer click en el botón, es necesario crear un objeto MemberViewController con la casa seleccionada
+//        viewController.navigationController?.show(self, sender: nil)
+//    }
+//}

@@ -29,9 +29,9 @@ final class MasterTabBarController: UITabBarController {
         self.seasonListNavigation = self.seasonListViewController.wrappedInNavigation
         self.houseDetailNavigation = self.houseDetailViewController.wrappedInNavigation
         self.seasonDetailNavigation = self.seasonDetailViewController.wrappedInNavigation
-
+        
         super.init(nibName: nil, bundle: nil)
-
+        
         syncViewControllers()
 
     }
@@ -44,12 +44,20 @@ final class MasterTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if splitViewController!.isCollapsed {
+            houseListViewController.delegate = houseListViewController
+            seasonListViewController.delegate = seasonListViewController
+        }
     }
     
 }
@@ -65,25 +73,23 @@ extension MasterTabBarController {
     }
     
     // Actualiza la DetailView del UISplitViewController dependiendo del valoe selecionado
-    private func updateSelectedView() {
+    private func updateSelectedView(selectedViewController: UIViewController) {
         
-        guard let tabBarNavigation = self.navigationController else {
-            fatalError("MasterTabBarController - navigationController is nil")
-        }
-        
-        if self.selectedIndex == 0 {
-            
-            splitViewController?.viewControllers = [
-                tabBarNavigation,
-                houseDetailNavigation
-            ]
+        if type(of: selectedViewController) == HouseListViewController.self {
+
+            if splitViewController!.isCollapsed {
+                navigationController?.show(houseDetailNavigation, sender: nil)
+            } else {
+                splitViewController?.showDetailViewController(houseDetailNavigation, sender: nil)
+            }
 
         } else {
-            
-            splitViewController?.viewControllers = [
-                tabBarNavigation,
-                seasonDetailNavigation
-            ]
+
+            if splitViewController!.isCollapsed {
+                navigationController?.show(seasonDetailNavigation, sender: nil)
+            } else {
+                splitViewController?.showDetailViewController(seasonDetailNavigation, sender: nil)
+            }
 
         }
 
@@ -94,7 +100,8 @@ extension MasterTabBarController: UITabBarControllerDelegate {
     
     public func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         // Llamamos a la function que actualiza la DetailView del UISplitViewController dependiendo del valoe selecionado
-        updateSelectedView()
+        let navigation = viewController as! UINavigationController
+        updateSelectedView(selectedViewController: navigation.viewControllers.first!)
         syncViewControllers()
 
     }
@@ -102,10 +109,8 @@ extension MasterTabBarController: UITabBarControllerDelegate {
 }
 
 extension MasterTabBarController: UISplitViewControllerDelegate {
-
     // Con esta función lo que indicamos es que pliegue la vista de detalle y muestre la main en caso de poco tamaño de pantalla
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         return true
     }
-    
 }

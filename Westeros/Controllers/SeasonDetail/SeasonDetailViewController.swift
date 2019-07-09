@@ -8,19 +8,19 @@
 
 import UIKit
 
-protocol SeasonDetailViewControllerDelegate: class {
-    // Se asigna el siguiente nomber de la función por convención:
-    // <nombre_del_objeto_que_tiene_un_delegado>(_ <el propio objeto que tiene el delegado>: <clase_del_objeto>,
-    // <evento_que_se_comunica> <nombre_objeto_que_se_envia>: <clase_del_objeto>
-    //    func houseDetailViewController(_ viewController: HouseDetailViewController, didSelectHouse house: House)
-    func seasonDetailViewController(didSelectEpisodesButton viewController: SeasonDetailViewController)
-}
+//protocol SeasonDetailViewControllerDelegate: class {
+//    // Se asigna el siguiente nomber de la función por convención:
+//    // <nombre_del_objeto_que_tiene_un_delegado>(_ <el propio objeto que tiene el delegado>: <clase_del_objeto>,
+//    // <evento_que_se_comunica> <nombre_objeto_que_se_envia>: <clase_del_objeto>
+//    //    func houseDetailViewController(_ viewController: HouseDetailViewController, didSelectHouse house: House)
+//    func seasonDetailViewController(didSelectEpisodesButton viewController: SeasonDetailViewController)
+//}
 
 final class SeasonDetailViewController: UIViewController {
 
     // MARK: - Properties
     private var model: Season
-    weak var delegate: SeasonDetailViewControllerDelegate?
+//    weak var delegate: SeasonDetailViewControllerDelegate?
     
     // MARK: - Outlets
     @IBOutlet weak var nameLabel: UILabel!
@@ -77,7 +77,6 @@ extension SeasonDetailViewController {
     }
 }
 
-
 extension SeasonDetailViewController: SeasonListViewControllerDelegate {
     func seasonListViewController(_ viewController: SeasonListViewController, didSelectSeason season: Season) {
         // Actualizamos el modelo
@@ -87,8 +86,6 @@ extension SeasonDetailViewController: SeasonListViewControllerDelegate {
         syncModelWithView()
 
     }
-    
-    
 }
 
 extension SeasonDetailViewController {
@@ -96,7 +93,6 @@ extension SeasonDetailViewController {
         // Esta función se tiene que exponer a Objective-C. No se pueden utilizar estructuras y caracteristicas de Swift que no existan en Objective-C
         // Crear el MemberViewController
         let episodeListViewController = EpisodeListViewController(model: model.sortedEpisodes)
-        self.delegate = episodeListViewController
-        self.delegate?.seasonDetailViewController(didSelectEpisodesButton: self)
+        navigationController?.show(episodeListViewController, sender: nil)
     }
 }

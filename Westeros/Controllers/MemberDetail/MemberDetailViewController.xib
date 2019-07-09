@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MemberDetailViewController" customModule="Westeros" customModuleProvider="target">
+            <connections>
+                <outlet property="memberAlias" destination="7ca-8f-MEF" id="Vxk-n3-CiI"/>
+                <outlet property="memberImage" destination="AAU-7L-KCR" id="hbJ-Um-iPs"/>
+                <outlet property="memberNameLabel" destination="vfg-3W-gqS" id="cdC-73-9Ir"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="s3q-YC-oeV">
+                    <rect key="frame" x="20" y="64" width="374" height="245"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AK0-ZU-qKd">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="214.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfg-3W-gqS">
+                                    <rect key="frame" x="159" y="0.0" width="56.5" height="26.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="tyrion" translatesAutoresizingMaskIntoConstraints="NO" id="AAU-7L-KCR">
+                                    <rect key="frame" x="0.0" y="36.5" width="374" height="178"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="AAU-7L-KCR" firstAttribute="leading" secondItem="AK0-ZU-qKd" secondAttribute="leading" id="Yge-RB-Srg"/>
+                                <constraint firstAttribute="trailing" secondItem="AAU-7L-KCR" secondAttribute="trailing" id="n2S-Y0-cjf"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ca-8f-MEF">
+                            <rect key="frame" x="0.0" y="224.5" width="42" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="AK0-ZU-qKd" firstAttribute="leading" secondItem="s3q-YC-oeV" secondAttribute="leading" id="SsH-fA-pY4"/>
+                        <constraint firstItem="AK0-ZU-qKd" firstAttribute="top" secondItem="s3q-YC-oeV" secondAttribute="top" id="asT-wo-uL9"/>
+                        <constraint firstAttribute="trailing" secondItem="AK0-ZU-qKd" secondAttribute="trailing" id="rOg-2Z-h2O"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="s3q-YC-oeV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="6oC-oS-wLF"/>
+                <constraint firstItem="s3q-YC-oeV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="owM-u2-ujV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="s3q-YC-oeV" secondAttribute="trailing" constant="20" id="tcx-qd-RzA"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tyrion" width="316.5" height="178"/>
+    </resources>
+</document>

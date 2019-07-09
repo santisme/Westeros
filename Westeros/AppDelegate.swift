@@ -42,14 +42,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Creamos el SplitViewController
         let splitViewController = UISplitViewController()
         splitViewController.viewControllers = [
-            tabBarController.wrappedInNavigation,       // Master
-            tabBarController.houseDetailNavigation      // Detail
+//            tabBarController.wrappedInNavigation,       // Master
+            tabBarController,                            // Master
+            tabBarController.houseDetailNavigation,      // Detail
+            tabBarController.seasonDetailNavigation      // Detail
         ]
 
         splitViewController.preferredDisplayMode = .primaryOverlay
         splitViewController.preferredDisplayMode = .allVisible
         splitViewController.delegate = tabBarController
-
+                
         window?.rootViewController = splitViewController
 
         return true

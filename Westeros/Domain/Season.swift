@@ -100,13 +100,7 @@ extension Season: CustomStringConvertible {
     }
 }
 
-// El protocolo Hashable confirma el protocolo Equatable
-// No es necesario crear una nueva extensión para conformar dicho protocolo
 extension Season: Hashable {
-    static func == (lhs: Season, rhs: Season) -> Bool {
-        return lhs.hashValue == rhs.hashValue
-    }
-    
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.number)
         hasher.combine(self.name)
@@ -114,9 +108,19 @@ extension Season: Hashable {
     }
 }
 
+extension Season: Equatable {
+    static func == (lhs: Season, rhs: Season) -> Bool {
+        return lhs.proxyForEquality == rhs.proxyForEquality
+    }
+}
+
 extension Season {
     var proxyForComparison: Date {
         return self.airDate
+    }
+    
+    var proxyForEquality: String {
+        return "\(name) \(airDate) \(number)"
     }
 }
 

@@ -88,7 +88,10 @@ extension SeasonListViewController: UITableViewDelegate {
             let detailNavigationController = detailViewController.navigationController,
             // Mostramos la vista de detalle con el controlador de navegación de detalle
             ((splitViewController?.showDetailViewController(detailNavigationController, sender: nil)) != nil) else {
-                fatalError("SeasonListViewController - delegate is nil")
+                let detailViewController = SeasonDetailViewController(model: season)
+                self.delegate = detailViewController
+                navigationController?.show(detailViewController, sender: nil)
+                return
         }
         
         // Avisamos al delegado
@@ -126,5 +129,12 @@ extension SeasonListViewController {
         let lastIndex = userDefaults.integer(forKey: Constants.LAST_SEASON_KEY)
         
         return model[lastIndex]
+    }
+}
+
+extension SeasonListViewController: SeasonListViewControllerDelegate {
+    func seasonListViewController(_ viewController: SeasonListViewController, didSelectSeason season: Season) {
+        let seasonDetailViewController = SeasonDetailViewController(model: season)
+        navigationController?.show(seasonDetailViewController, sender: nil)
     }
 }

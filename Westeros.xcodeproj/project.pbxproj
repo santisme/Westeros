@@ -24,6 +24,8 @@
 		F137F41D22C2DE0E009C8F8B /* SeasonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F137F41B22C2DE0E009C8F8B /* SeasonDetailViewController.xib */; };
 		F1397DBC22BA3FB500587BFE /* MemberListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1397DBA22BA3FB500587BFE /* MemberListViewCell.swift */; };
 		F1397DBD22BA3FB500587BFE /* MemberListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1397DBB22BA3FB500587BFE /* MemberListViewCell.xib */; };
+		F13AD70122D47E6700F36F95 /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13AD6FF22D47E6700F36F95 /* MemberDetailViewController.swift */; };
+		F13AD70222D47E6700F36F95 /* MemberDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13AD70022D47E6700F36F95 /* MemberDetailViewController.xib */; };
 		F15A639922C661B300DF5BE2 /* MasterTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15A639822C661B300DF5BE2 /* MasterTabBarController.swift */; };
 		F1949D7C22B3DB3E005F40BA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1949D7B22B3DB3E005F40BA /* Repository.swift */; };
 		F1949D8022B3E78F005F40BA /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1949D7F22B3E78F005F40BA /* UIViewController+Navigation.swift */; };
@@ -73,6 +75,8 @@
 		F137F41B22C2DE0E009C8F8B /* SeasonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonDetailViewController.xib; sourceTree = "<group>"; };
 		F1397DBA22BA3FB500587BFE /* MemberListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewCell.swift; sourceTree = "<group>"; };
 		F1397DBB22BA3FB500587BFE /* MemberListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewCell.xib; sourceTree = "<group>"; };
+		F13AD6FF22D47E6700F36F95 /* MemberDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
+		F13AD70022D47E6700F36F95 /* MemberDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberDetailViewController.xib; sourceTree = "<group>"; };
 		F15A639822C661B300DF5BE2 /* MasterTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTabBarController.swift; sourceTree = "<group>"; };
 		F1949D7B22B3DB3E005F40BA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		F1949D7F22B3E78F005F40BA /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 		F137397D22BB8B370044D285 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F13AD6FE22D47E2F00F36F95 /* MemberDetail */,
 				F12D1ADA22C4CDE000DCB868 /* MasterTabBar */,
 				F137F41922C2D8B4009C8F8B /* EpisodeDetail */,
 				F137F41822C2D8AA009C8F8B /* EpisodeList */,
@@ -221,6 +226,15 @@
 				F136E57322C3DC0E00CBB45B /* EpisodeDetailViewController.xib */,
 			);
 			path = EpisodeDetail;
+			sourceTree = "<group>";
+		};
+		F13AD6FE22D47E2F00F36F95 /* MemberDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F13AD6FF22D47E6700F36F95 /* MemberDetailViewController.swift */,
+				F13AD70022D47E6700F36F95 /* MemberDetailViewController.xib */,
+			);
+			path = MemberDetail;
 			sourceTree = "<group>";
 		};
 		F1949D7D22B3DD22005F40BA /* Repositories */ = {
@@ -394,6 +408,7 @@
 				F136E57122C3D97700CBB45B /* EpisodeListViewController.xib in Resources */,
 				F19904F722AF0B1500D13F87 /* LaunchScreen.storyboard in Resources */,
 				F136E57522C3DC0E00CBB45B /* EpisodeDetailViewController.xib in Resources */,
+				F13AD70222D47E6700F36F95 /* MemberDetailViewController.xib in Resources */,
 				F137F41D22C2DE0E009C8F8B /* SeasonDetailViewController.xib in Resources */,
 				F19904F422AF0B1500D13F87 /* Assets.xcassets in Resources */,
 				F1E9FEAA22B96C97009C4767 /* WikiViewController.xib in Resources */,
@@ -435,6 +450,7 @@
 				F137F41C22C2DE0E009C8F8B /* SeasonDetailViewController.swift in Sources */,
 				F1E9FEA922B96C97009C4767 /* WikiViewController.swift in Sources */,
 				F137397F22BC3A8C0044D285 /* NotificationName+Additions.swift in Sources */,
+				F13AD70122D47E6700F36F95 /* MemberDetailViewController.swift in Sources */,
 				F1949D7C22B3DB3E005F40BA /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

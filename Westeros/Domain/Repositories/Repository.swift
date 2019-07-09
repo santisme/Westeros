@@ -108,7 +108,7 @@ extension LocalFactory: SeasonFactory {
             }
         }
         
-        return seasonList
+        return seasonList.sorted()
     }
     
     func seasons(filteredBy theFilter: (Season) -> Bool) -> [Season] {
